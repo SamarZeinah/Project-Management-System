@@ -10,8 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "axios": "^1.8.4",
+    "bootstrap": "^5.3.3",
+    "jwt-decode": "^4.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "react-pro-sidebar": "^1.1.0",
+    "react-router-dom": "^7.4.0",
+    "react-toastify": "^11.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
