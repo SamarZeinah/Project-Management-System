@@ -1,0 +1,9 @@
+.auth-container{
+    /* background-image: url("./assets/images/bg-img.png"); */
+    background-color:rgba(14, 56, 47, 1);
+    background-size: cover;
+    background-position: center center;
+}
+.bg-base-color{
+    background-color:rgba(49, 89, 81, 0.9);
+}
