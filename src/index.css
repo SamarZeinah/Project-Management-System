@@ -24,8 +24,11 @@
     border: none !important;
     border-bottom: 2px solid #fff !important;
     border-radius: 0 !important; 
+    outline: none !important;
     
 }
+
+
 
   .custom-input::placeholder {
     color: #fff !important; 
@@ -34,6 +37,7 @@
   .main-style{
     color: var(--main-color);
   }
+
   .btn-style{
     background-color: var(--main-color) !important ;
   }
@@ -43,16 +47,15 @@
   }
 
  
-  .custom-input:focus {
+.custom-input:focus {
   outline: none !important;
   box-shadow: none !important;
   border-color: inherit !important;
-  background-color: transparent !important;
+  background-color: transparent!important;
+  border-bottom: 2px solid #fff !important;
 }
 
-.login-text {
-  position: relative; 
-}
+
 
 .main-style::after {
   content: "";
@@ -63,3 +66,29 @@
   height: 4px; 
   background-color:#ff9a00;
 }
+
+.custom-input:active {
+  background-color: transparent !important;
+  border-bottom: 2px solid #fff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.custom-input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+/* .password-toggle-btn {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #fff;
+  cursor:pointer;
+} */
+
+
+
+  
+ 

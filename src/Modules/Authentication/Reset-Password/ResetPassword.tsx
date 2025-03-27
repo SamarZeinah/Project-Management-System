@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { EMAIL_VALIDATION, PASSWORD_VALIDATION } from "../../../Services/Validation"
 import { Button, Container } from "react-bootstrap"
 import { useEffect, useState } from "react"
-import { AxiosError } from "axios"
+
 
 interface formData{
   email:string;
