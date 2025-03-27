@@ -1,9 +1,129 @@
+/* shared */
 .auth-container{
-    /* background-image: url("./assets/images/bg-img.png"); */
+    /* background-image: url("../src/assets/bg.svg"); */
     background-color:rgba(14, 56, 47, 1);
     background-size: cover;
     background-position: center center;
+    position: relative;
+    
 }
 .bg-base-color{
     background-color:rgba(49, 89, 81, 0.9);
 }
+.bg-top{
+    background-image: url(./assets/bg-top.png);
+    position: absolute;
+    top: 0;
+    height: 110%;
+    width: 40%;
+    right: 0;
+    background-repeat: no-repeat;
+
+}
+.bg-bottom{
+background-image: url(./assets//bg-bottom.png);
+position: fixed;
+bottom: 0;
+left: 0;
+width: 400px;
+height: 500px;
+}
+
+
+/* register styling */
+
+.register .heading{
+    color: rgba(239, 155, 40, 1);
+    font-weight: 700;
+    font-size: 32px;
+    position: relative;
+}
+.register .heading::after{
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(239, 155, 40, 1);
+}
+.register span{
+    font-size: 13px;
+}
+
+
+.register .form-label{
+color: rgba(239, 155, 40, 1);
+font-size: 13px;
+margin-bottom: 0;
+}
+.register .input-group{
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+.register .input-register{
+    color: white;
+    background-color: transparent;
+     border: none;
+    border-radius: 0;
+    padding-left: 0;
+    padding-top: 0;
+
+}
+.register .input-register-border{
+     border-bottom: 2px solid rgba(255, 255, 255, 1); 
+}
+.register .input-register::placeholder{
+color: white;
+}
+.register .input-group:focus-within {
+    border-color: #86feb6c2;
+}
+.register .form-control:focus{
+    box-shadow: none;
+    border-color: #86feb6c2;
+color: white;
+    background-color: transparent;
+}
+.register .save-btn{
+    background-color: rgba(239, 155, 40, 1);
+}
+.register .btn-primary {
+    --bs-btn-border-color:transparent
+}
+.register .btn:hover,
+.register .btn:first-child:active,
+.register .btn:focus-visible,
+.register .btn-primary{
+    box-shadow: none;
+    background-color: rgba(239, 155, 40, 1);
+    --bs-btn-disabled-bg : rgba(239, 155, 40, 1);
+}
+
+.register .btn:first-child:active{
+    border-color: transparent;
+}
+.register .form-control:focus{
+    background-color: transparent;
+}
+.register .input-group-text{
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+     border: none;
+    border-radius: 0;
+}
+.register .text-error{
+    color: #dc3545 ;
+}
+.register input:-webkit-autofill {
+    background-color: transparent;
+}
+.register .file-upload{
+    display: none;
+}
+
+.register .img-upload{
+    cursor: pointer;
+}
+/* end register styling  */
