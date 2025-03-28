@@ -4,19 +4,19 @@ import { publicAxiosInstance } from "../../../Services/Axiosinstanc"
 import { USERS_URLS } from "../../../Services/Urls"
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
-import { EMAIL_VALIDATION } from "../../../Services/Validation"
+import { Email_Validation } from "../../../Services/Validation"
+import { forgetData } from "../../Shared/Interfaces/AuthInterface";
 
-interface formData{
-  email:string
-}
+
+
 
 const ForgetPassword = () => {
 
  let navigate=useNavigate()
 
-  let{register,handleSubmit,formState:{errors,isSubmitting}} =useForm<formData>({mode:"onChange"})
+  let{register,handleSubmit,formState:{errors,isSubmitting}} =useForm<forgetData>({mode:"onChange"})
   
-  const onSubmit=async(data:formData)=>{
+  const onSubmit=async(data:forgetData)=>{
     try {
       const response =await publicAxiosInstance.post(USERS_URLS.Request_RESET_PASSWORD,data)
       console.log(response);
@@ -43,7 +43,7 @@ const ForgetPassword = () => {
      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="mb-3">
         <label htmlFor="emailInput" className="form-label main-style">E-mail</label>
-        <input {...register("email",EMAIL_VALIDATION)}
+        <input {...register("email",Email_Validation)}
           type="text"
           className="form-control custom-input p-3"
           id="emailInput"
