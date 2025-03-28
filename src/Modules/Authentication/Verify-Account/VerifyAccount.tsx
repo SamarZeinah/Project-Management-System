@@ -6,15 +6,13 @@ import { USERS_URLS } from "../../../Services/Urls"
 import { toast } from "react-toastify"
 import { Code_Validation, Email_Validation } from "../../../Services/Validation"
 import { AxiosError } from "axios"
+import { IVerfyData } from "../../Shared/Interfaces/AuthInterface"
 
 
 const VerifyAccount = () => {
   const navigate=useNavigate()
   const {state}=useLocation()
-  interface IVerfyData{
-    email:string
-    ,code:string
-  }
+ 
   const {register,formState:{errors,isSubmitting},handleSubmit}=useForm<IVerfyData>({
     mode:'onChange',
     defaultValues:{email:state?.email}
@@ -23,7 +21,7 @@ const VerifyAccount = () => {
 
 
 const onSubmit=async(values:IVerfyData)=>{
-console.log(values)
+
 try {
   const {data}=await publicAxiosInstance.put(USERS_URLS.VERIFY_USER,values)
   toast.success(data?.message)

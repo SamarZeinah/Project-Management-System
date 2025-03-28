@@ -12,6 +12,7 @@ import { AxiosError } from "axios";
 
 import registerImage from '../../../assets/register-img.png'
 import useTogglePassword from "../../../hooks/useTogglePassword";
+import { IRegisterData } from "../../Shared/Interfaces/AuthInterface";
 
 const Register = () => {
   const [registerImagePath, setRegisterImage] = useState(registerImage); 
@@ -19,16 +20,7 @@ const Register = () => {
 
   const navigate=useNavigate()
 
-  interface IRegisterData{
-    profileImage:null|File ,
-    userName:string,
-    email:string,
-    country:string,
-    phoneNumber:string,
-    confirmPassword:string,
-    password:string
-  }
-   
+  
 
   const {register,handleSubmit,formState:{errors,isSubmitting},watch,trigger,setValue}=useForm<IRegisterData>({
     mode:'onChange'
@@ -84,7 +76,9 @@ try {
 const password=watch('password')
 const comfirmPassword=watch('confirmPassword')
 useEffect(()=>{
-trigger('confirmPassword')
+  if(comfirmPassword){
+    trigger('confirmPassword')
+  }
 },[password,comfirmPassword,trigger])
 
 
