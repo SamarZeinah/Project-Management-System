@@ -15,14 +15,12 @@ import { AxiosError } from "axios";
 
 import useTogglePassword from "../../../hooks/useTogglePassword";
 
+import { ChangePasswordData } from "../../Shared/Interfaces/AuthInterface";
+
 const ChangePassword = () => {
   const navigate = useNavigate();
 
-  interface ChangePasswordData {
-    oldPassword: string;
-    newPassword: string;
-    confirmNewPassword: string;
-  }
+
 
   const {
     register,
