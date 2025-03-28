@@ -11,3 +11,15 @@ export  interface IVerfyData{
     email:string
     ,code:string
   }
+
+  export interface resetData{
+      email:string;
+      seed:string;
+      password :string;
+      confirmPassword:string;
+      state:string;
+    }
+
+    export interface forgetData{
+      email:string
+    }

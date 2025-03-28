@@ -1,4 +1,9 @@
-/* shared */
+
+:root{
+    --main-color:#EF9B28;
+   
+}
+
 .auth-container{
     /* background-image: url("../src/assets/bg.svg"); */
     background-color:rgba(14, 56, 47, 1);
@@ -10,6 +15,7 @@
 .bg-base-color{
     background-color:rgba(49, 89, 81, 0.9);
 }
+
 .bg-top{
     background-image: url(./assets/bg-top.png);
     position: absolute;
@@ -28,7 +34,6 @@ left: 0;
 width: 400px;
 height: 500px;
 }
-
 
 /* register styling */
 
@@ -127,3 +132,76 @@ color: white;
     cursor: pointer;
 }
 /* end register styling  */
+
+.bg-base-color{
+    background-color:rgba(49, 89, 81, 0.9);
+}
+
+
+
+
+/* FORGET PASSWORD */
+
+.custom-input {
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid #fff !important;
+    border-radius: 0 !important; 
+    outline: none !important;
+    
+}
+
+
+
+  .custom-input::placeholder {
+    color: #fff !important; 
+    opacity: 1; 
+  }
+  .main-style{
+    color: var(--main-color);
+  }
+
+  .btn-style{
+    background-color: var(--main-color) !important ;
+  }
+
+  .form-control{
+    color: #fff !important;
+  }
+
+ 
+.custom-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: inherit !important;
+  background-color: transparent!important;
+  border-bottom: 2px solid #fff !important;
+}
+
+
+
+.main-style::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 18px; 
+  height: 4px; 
+  background-color:#ff9a00;
+}
+
+.custom-input:active {
+  background-color: transparent !important;
+  border-bottom: 2px solid #fff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.custom-input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
