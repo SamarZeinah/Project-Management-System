@@ -23,3 +23,9 @@ export  interface IVerfyData{
     export interface forgetData{
       email:string
     }
+
+  export interface ChangePasswordData {
+      oldPassword: string;
+      newPassword: string;
+      confirmNewPassword: string;
+    }
