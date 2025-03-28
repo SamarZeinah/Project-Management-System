@@ -35,8 +35,10 @@ const Login = () => {
 
         navigate("/dashboard");
 
-
+        
         toast.success("Successfully logged in");
+        const token = response.data.token;
+        localStorage.setItem('token',token);
       } catch (error) {
            if (error instanceof Error) {
             toast.error(error.message);

@@ -5,6 +5,7 @@ const useTogglePassword = () => {
     password:false,
     comfirmPassword:false
   });
+  
 function toggleVisibility(field:string) {
     if(field==='password'){
         setVisible({...visible,password:!visible.password})

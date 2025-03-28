@@ -5,8 +5,8 @@ const AuthLayout = () => {
   return (
     <>
        <div className="auth-container overflow-y-auto">
-        <div className="bg-top"></div>
-        <div className="bg-bottom"></div>
+       <div className="bg-top"></div>
+       <div className="bg-bottom"></div>
         <Container fluid>
         <Row className="vh-100 justify-content-center align-items-center position-relative">
           <Col sm={6}>

@@ -9,7 +9,6 @@ import { Country_Validation,  Email_Validation,
     Phone_Validation,  UserName_Validation } from "../../../Services/Validation";
 import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
-
 import registerImage from '../../../assets/register-img.png'
 import useTogglePassword from "../../../hooks/useTogglePassword";
 import { IRegisterData } from "../../Shared/Interfaces/AuthInterface";

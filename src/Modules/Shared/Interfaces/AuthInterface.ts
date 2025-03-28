@@ -11,9 +11,27 @@ export  interface IVerfyData{
     email:string
     ,code:string
   }
+    export interface resetData{
+      email:string;
+      seed:string;
+      password :string;
+      confirmPassword:string;
+      state:string;
+    }
+
+    export interface forgetData{
+      email:string
+    }
+
+    export interface ILoginData {
+    password: string;
+    email: string;
+  }
 
 
-export interface ILoginData {
-  password: string;
-  email: string;
-}
+
+  export interface ChangeFormInputs{
+    oldPassword: string,
+    newPassword: string,
+    confirmNewPassword: string,
+  }
