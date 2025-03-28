@@ -11,3 +11,9 @@ export  interface IVerfyData{
     email:string
     ,code:string
   }
+
+
+export interface ILoginData {
+  password: string;
+  email: string;
+}
