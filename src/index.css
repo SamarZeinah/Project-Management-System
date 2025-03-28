@@ -211,38 +211,3 @@ color: white;
     cursor: pointer;
   }
 
-
-/* 
-  .custom-input {
-    background-color: transparent !important;
-    border: none !important;
-    border-bottom: 2px solid #fff !important;
-    outline: none !important;
-    color: #fff !important;
-  }
-  
-  .custom-input::placeholder {
-    color: #fff !important;
-    opacity: 1 !important;
-  }
-  
-  .custom-input:focus {
-    background-color: transparent !important;
-    border-bottom: 2px solid #fff !important;
-    outline: none !important;
-    box-shadow: none !important;
-  }
-
-  .custom-input:active {
-    background-color: transparent !important;
-    border-bottom: 2px solid #fff !important;
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  .custom-input:-webkit-autofill {
-    background-color: transparent !important;
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    -webkit-text-fill-color: #fff !important;
-    transition: background-color 5000s ease-in-out 0s;
-}
- */

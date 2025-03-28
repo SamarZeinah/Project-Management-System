@@ -6,126 +6,6 @@
 
 }
 
-.left_vector {
-    position: absolute;
-    left: 0;
-    bottom:0;
-    width: 410px;
-    height: 550px;
-}
-
-.right_vector {
-    position: absolute;
-    right: 0;
-    top:0;
-    bottom:0;
-    width: 410px;
-    height: 100%;
-    overflow: hidden;
-} 
-.overlay_vector {
-    position: absolute;
-    right: 0;
-    top:0;
-    bottom:0;
-    width: 410px;
-    height: 100%;
-    overflow: hidden;
-}
-
-
-
-@media (max-width: 992px) {
-    .left_vector {
-        position: absolute;
-        left: 0;
-        bottom:0;
-        width: 410px;
-        height: 500px;
-    }
-
-    .right_vector {
-        position: absolute;
-        right: 0;
-        top:0;
-        bottom:0;
-        width: 380px;
-        height:330px;
-        overflow: hidden;
-    } 
-    .overlay_vector {
-        position: absolute;
-        right: 0;
-        top:0;
-        bottom:0;
-        width: 380px;
-        height:330px;
-    
-    
-        overflow: hidden;
-    }
-}
-/* @media (max-width: 768px) {
-       .left_vector {
-        position: absolute;
-        left: 0;
-        bottom:0;
-        width: 210px;
-        height: 20px;
-    }
-
-    .right_vector {
-        position: absolute;
-        right: -100px;
-        top:0;
-        bottom:0;
-        width: 410px;
-        height:530px;
-        overflow: hidden;
-    } 
-    .overlay_vector {
-        position: absolute;
-        right: -100px;
-        top:0;
-        bottom:0;
-        width: 410px;
-        height:530px;
-        overflow: hidden;
-    }
-} */
-
-@media (max-width: 576px) {
-    .left_vector {
-        position: absolute;
-        left: 0;
-        bottom:0;
-        width: 190px;
-        height: 160px;
-    }
-
-    .right_vector {
-        position: absolute;
-        right: -100px;
-        top:0;
-        bottom:0;
-        width:260px;
-        height:400px;
-        overflow: hidden;
-    } 
-    .overlay_vector {
-        position: absolute;
-        right: -100px;
-        top:0;
-        bottom:0;
-          width:260px;
-        height:400px;
-        overflow: hidden;
-    }
-}
-
-
-
-
 .login_title {
     color:var(--darkYellow);
 }
@@ -145,11 +25,16 @@ input[type="password"]::-webkit-input-placeholder {
     display: none;
 }
 .input_group_text {
-
     color: white !important;
     background-color: transparent !important;
     border:none !important;
     cursor: pointer !important;
+    border-bottom: 1px solid white !important;
+    border-radius:0 !important;
+    -webkit-border-radius:0 !important;
+    -moz-border-radius:0 !important;
+    -ms-border-radius:0 !important;
+    -o-border-radius:0 !important;
 }
 
 input {
