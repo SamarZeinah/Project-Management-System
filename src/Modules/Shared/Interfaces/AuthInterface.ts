@@ -29,3 +29,31 @@ export  interface IVerfyData{
       newPassword: string;
       confirmNewPassword: string;
     }
+export interface IUser{
+
+    id: number;
+    userName: string;
+    email: string;
+    country: string;
+    phoneNumber: string;
+    imagePath: string | null;
+    isActivated: boolean;
+    group: {
+      id: number;
+      name: string;
+      creationDate: string;
+      modificationDate: string;
+    };
+    creationDate: string;
+    modificationDate: string;
+  
+}
+export  interface ILoginData {
+  userId: number;
+  roles: string[];
+  userName: string;
+  userEmail: string;
+  userGroup: string;
+  iat: number; 
+  exp: number; 
+}

@@ -1,5 +1,6 @@
 import axios from "axios";
-export const baseUrl="https://upskilling-egypt.com:3006/api/v1";
+export const baseUrl="https://upskilling-egypt.com:3003/api/v1";
+export const imgURL="https://upskilling-egypt.com:3003";
 
 //public    Dont need Token
 export const publicAxiosInstance=axios.create({

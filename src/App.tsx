@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Bounce, ToastContainer } from 'react-toastify'
+
 import './App.css'
 import Login from './Modules/Authentication/Login/Login'
 import AuthLayout from './Modules/Shared/AuthLayout/AuthLayout'
@@ -8,7 +10,12 @@ import ForgetPassword from './Modules/Authentication/Forget-Password/ForgetPassw
 import ChangePassword from './Modules/Authentication/Change-Password/ChangePassword'
 import ResetPassword from './Modules/Authentication/Reset-Password/ResetPassword'
 import VerifyAccount from './Modules/Authentication/Verify-Account/VerifyAccount'
-import { Bounce, ToastContainer } from 'react-toastify'
+import ProtectedRoutes from './Modules/Shared/ProtectedRoutes.tsx/ProtectedRoutes'
+import MasterLayout from './Modules/Shared/MasterLayout/MasterLayout'
+import Dashboard from './Modules/Dahboard/Dashboard'
+import Users from './Modules/Users/Users'
+import ProjectsList from './Modules/Projects/ProjectsList/ProjectsList'
+import TasksList from './Modules/Tasks/TasksList/TasksList'
 
 
 function App() {
@@ -30,6 +37,19 @@ function App() {
     },
 
     // master layout
+
+    {
+      path:'dashboard',
+      element:<ProtectedRoutes ><MasterLayout/></ProtectedRoutes>,
+      errorElement:<NotFound/>,
+      children:[
+        // home
+        {index:true,element:<Dashboard />},
+        {path:'users',element:<Users />},
+        {path:'projects',element:<ProjectsList />},
+        {path:'tasks',element:<TasksList />},
+      ]
+      }
 
   ])
 
