@@ -24,10 +24,15 @@ export  interface IVerfyData{
     }
 
     export interface ILoginData {
-    password: string;
-    email: string;
-  }
+      password: string;
+      email: string;
+    }
+
+    export interface ChangePasswordData {
+      oldPassword: string;
+      newPassword: string;
+      confirmNewPassword: string;
+    }
 
 
 
-  
