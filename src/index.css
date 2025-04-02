@@ -257,9 +257,9 @@ color: rgba(14, 56, 47, 1);
     background-image: url(./assets/home-bg.png);
     background-repeat: no-repeat;
     background-position: center center;
-    height: 313px;
+    min-height: 313px;
     background-size: cover;
-    margin:  40px;
+    /* margin:  40px; */
     border-radius: 15px;
 }
 .home-bg span{
@@ -273,4 +273,57 @@ color: rgba(14, 56, 47, 1);
 .home-bg p{
     font-weight: 400;
     font-size: 30px;
+}
+/* chart styling */
+.card-info{
+    border-radius: 15px;
+    background-color: rgba(248, 249, 251, 1);
+}
+.card-info .card{
+    --bs-card-border-color:none
+}
+.card-info .todo{
+    background-color: rgba(229, 230, 244, 1);
+    border-radius: 15px;
+}
+.card-info .progress{
+    background-color: rgba(244, 244, 229, 1);
+    border-radius: 15px;
+}
+.card-info .done{
+    background-color: rgba(244, 229, 237, 1);
+    border-radius: 15px;
+}
+.card-info  .circle{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+.card-info .todo .circle{
+    background-color: rgba(207, 209, 236, 1);
+}
+.card-info .progress .circle{
+    background-color: rgba(228, 228, 188, 1);
+}
+.card-info .done .circle{
+    background-color: rgba(231, 195, 215, 1);
+}
+.card-info  .card-title{
+    font-size: 13px;
+    font-weight: 500px;
+    color: rgba(111, 120, 129, 1);
+}
+.card-info .card-text  p{
+    font-size: 20px;
+}
+.card-info .card-heading {
+font-size: 13px;
+border-left: 3px solid rgba(239, 155, 40, 1);
+}
+.card-info .card-heading span{
+    font-weight: 500;
+    color: black;
+}
+.card-info .card-heading p{
+    color: rgba(111, 120, 129, 1);
 }

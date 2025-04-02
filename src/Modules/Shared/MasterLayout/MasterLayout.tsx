@@ -1,7 +1,7 @@
 
 
 import { Outlet } from "react-router-dom";
-import SideBare from "../SideBare";
+import SideBare from "../Sidebar/SideBare";
 import Navbar from "../Navbar/Navbare";
 
 
@@ -16,10 +16,12 @@ export default function MasterLayout() {
  
  <SideBare/>
  
-<div className="w-100  d-flex flex-column  vh-100 overflow-y-auto">
+<div className="w-100  d-flex flex-column  ">
 
- <Outlet/>
+<div>
+<Outlet/>
  
+</div>
 </div>
   </div>
   </>
