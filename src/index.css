@@ -205,3 +205,72 @@ color: white;
 }
 
 
+/* nav styling */
+.navbar{
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+
+}
+.navbar  h6{
+font-weight: 400;
+font-size: 14px;
+color: rgba(14, 56, 47, 1);
+
+}
+.navbar p{
+    color: rgba(0, 0, 0, 0.37);
+    font-size: 12px;
+}
+/* side bar styling  */
+
+.sidebar-container .ps-sidebar-container{
+    height: 100vh;
+    background-color: rgba(14, 56, 47, 1);
+    color: white;
+}
+.sidebar-container .ps-menu-label{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.sidebar-container  .ps-menu-button:hover{
+    background-color:  rgba(239, 155, 40, 0.3) !important;
+}
+.sidebar-container{
+    position: relative;
+}
+.sidebar-container .sideli .ps-menu-button {
+    position: absolute;
+    color: white;
+   border-radius: 8px;
+
+    height: 34px;
+    right: 0;
+    padding: 0;
+    background-color: rgba(239, 155, 40, 1);
+}
+.sidebar-container .sideli .ps-menu-button:hover{
+    background-color: rgba(239, 155, 40, 1) !important;
+}
+/* home styling */
+.home-bg{
+    background-image: url(./assets/home-bg.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 313px;
+    background-size: cover;
+    margin:  40px;
+    border-radius: 15px;
+}
+.home-bg span{
+    color: rgba(239, 155, 40, 1);
+}
+.home-bg .title{
+    color: #fff;
+    font-size: 36px;
+    font-weight: 400;
+}
+.home-bg p{
+    font-weight: 400;
+    font-size: 30px;
+}
