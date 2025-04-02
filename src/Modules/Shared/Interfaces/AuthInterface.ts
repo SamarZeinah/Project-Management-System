@@ -30,8 +30,4 @@ export  interface IVerfyData{
 
 
 
-  export interface ChangeFormInputs{
-    oldPassword: string,
-    newPassword: string,
-    confirmNewPassword: string,
-  }
+  
