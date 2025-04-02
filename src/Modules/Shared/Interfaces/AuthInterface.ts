@@ -30,8 +30,10 @@ export  interface IVerfyData{
       confirmNewPassword: string;
     }
 
-
-    
+  export interface ILoginData {
+    password: string;
+    email: string;
+  }
 
 
 
