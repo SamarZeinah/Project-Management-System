@@ -16,7 +16,6 @@ import Dashboard from './Modules/Dahboard/Dashboard'
 import Users from './Modules/Users/Users'
 import ProjectsList from './Modules/Projects/ProjectsList/ProjectsList'
 import TasksList from './Modules/Tasks/TasksList/TasksList'
-import Addingform from './Modules/Shared/Addingform/Addingform'
 import TasksData from './Modules/Tasks/TasksData/TasksData'
 
 

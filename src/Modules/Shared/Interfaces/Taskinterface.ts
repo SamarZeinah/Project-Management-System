@@ -12,3 +12,7 @@ export interface UserSelector {
   id: number;
   userName: string;
 }
+
+export interface ProjectsContextType {
+  projects: ProjectSelector[];
+}
