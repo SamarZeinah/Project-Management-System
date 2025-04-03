@@ -4,12 +4,12 @@ import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import {  NavLink,  useNavigate } from "react-router-dom";
 
 // import icons
-import userIcons  from '../../assets/people-icon.png'
-import homeIcon  from '../../assets/home-icon.png'
-import tasksIcon  from '../../assets/tasks-icon.png'
-import projectsIcon  from '../../assets/projects-icon.png'
-import changeIcon  from '../../assets/change-icon.png'
-import logoutIcon  from '../../assets/logout-icon.png'
+import userIcons  from '../../../assets/people-icon.png'
+import homeIcon  from '../../../assets/home-icon.png'
+import tasksIcon  from '../../../assets/tasks-icon.png'
+import projectsIcon  from '../../../assets/projects-icon.png'
+import changeIcon  from '../../../assets/change-icon.png'
+import logoutIcon  from '../../../assets/logout-icon.png'
 
 
 
@@ -47,7 +47,7 @@ useEffect(()=>{
   navigate('/login')
 }
 
-  return <div className="sidebar-container vh-100">
+  return <div className="sidebar-container  position-sticky top-0 bottom-0 h-100">
     
 
     <Sidebar collapsed={isCollapsed}>

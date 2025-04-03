@@ -9,5 +9,18 @@ export const publicAxiosInstance=axios.create({
 //private   need Token after login
 export const privateAxiosInstance=axios.create({
     baseURL:baseUrl,
-    headers: { Authorization: localStorage.getItem('token') }
 })
+
+
+privateAxiosInstance.interceptors.request.use(
+    (config) => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        config.headers["Authorization"] = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
