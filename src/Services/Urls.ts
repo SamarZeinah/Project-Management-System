@@ -18,3 +18,7 @@ export const USERS_URLS={
 
     
 }
+//tasks count
+export const TASK_Count={
+    GET_TASKS_COUNT:'/Task/count'
+}
