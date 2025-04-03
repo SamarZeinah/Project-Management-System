@@ -93,7 +93,7 @@ export default function Addingform() {
   let getTask = async () => {
     try {
       let response = await privateAxiosInstance.get(
-        `https://upskilling-egypt.com:3003/api/v1/Task/${id}`
+        TASKS_URLS.GET_TASK(id)
       );
 
     

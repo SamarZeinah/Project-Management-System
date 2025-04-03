@@ -20,4 +20,5 @@ export const USERS_URLS={
 export const TASKS_URLS={
     ADD_NEW_TASK:`/Task`,
     EDIT_TASK:(id:number)=>`/Task/${id}`,
+    GET_TASK:(id:number)=>`/Task/${id}`,
 }
