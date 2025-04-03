@@ -16,6 +16,8 @@ import Dashboard from './Modules/Dahboard/Dashboard'
 import Users from './Modules/Users/Users'
 import ProjectsList from './Modules/Projects/ProjectsList/ProjectsList'
 import TasksList from './Modules/Tasks/TasksList/TasksList'
+import Addingform from './Modules/Shared/Addingform/Addingform'
+import TasksData from './Modules/Tasks/TasksData/TasksData'
 
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
         {path:'users',element:<Users />},
         {path:'projects',element:<ProjectsList />},
         {path:'tasks',element:<TasksList />},
+        {path:'add-task',element:<TasksData/>},
+        {path:'edit-task/:id',element:<TasksData/>},
       ]
       }
 
