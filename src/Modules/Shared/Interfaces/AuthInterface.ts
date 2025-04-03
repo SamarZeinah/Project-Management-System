@@ -57,3 +57,8 @@ export  interface ILoginData {
   iat: number; 
   exp: number; 
 }
+
+export interface ILoginCredentials {
+  email:string;
+  password:string;
+}
