@@ -55,3 +55,22 @@ export const Code_Validation={
     message:"Enter min 4 characters"
    }
  }
+
+ export const TITLE_VALIDATION = {
+  required: "Title is required",
+  pattern: {
+    value: /^[A-Za-z0-9\s]+$/,
+    message: "Title must contain only letters, numbers, and spaces",
+  },
+};
+export const DESCRIPTION_VALIDATION = {
+  required: "Description is required",
+  minLength: {
+    value: 10,
+    message: "Description must be at least 10 characters long",
+  },
+  maxLength: {
+    value: 500,
+    message: "Description cannot exceed 500 characters",
+  },
+};

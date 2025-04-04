@@ -16,5 +16,17 @@ export const USERS_URLS={
     Request_RESET_PASSWORD:`/Users/Reset/Request`,
     RESET_PASSWORD:`/Users/Reset`,
 
-    
+}
+
+
+// Projects_URLS
+export const PROJECTS_URLS={
+    CREATE_PROJECT:"/Project",
+    GET_PROJECT:(id:number)=>`/Project/${id}`,
+    UPDATE_PROJECT:(id:number)=>`/Project/${id}`,
+    DELETE_PROJECT:(id:number)=>`/Project/${id}`,
+    GET_PROJECTS_MANAGER:`/Project/manager`,
+    GET_PROJECTS_EMPLOYEE:`/Project/employee`,
+    GET_ALL_PROJECTS:`/Project/`,
+
 }

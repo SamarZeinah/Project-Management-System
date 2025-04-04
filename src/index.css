@@ -158,7 +158,7 @@ color: white;
     opacity: 1; 
   }
   .main-style{
-    color: var(--main-color);
+    color: var(--main-color) !important;
   }
 
   .btn-style{
@@ -180,7 +180,7 @@ color: white;
 
 
 
-.main-style::after {
+.heading-style::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -274,3 +274,185 @@ color: rgba(14, 56, 47, 1);
     font-weight: 400;
     font-size: 30px;
 }
+
+/* start project-list */
+.project-list{
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08); 
+  }
+  
+  .table-container {
+    margin: 30px ;
+    width: 90%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    border:0  ;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+  .table {
+    border: none;
+    /* width: 100% !important; */
+  
+  }
+  /* @media screen and (max-width:992px){
+   .table{
+      width: 100% !important;  
+    } 
+  }*/
+  .table th, .table td {
+    padding: 12px; 
+    border: none;
+  
+  }
+  .table-bordered>:not(caption)>* {
+    border: none;
+  
+  }
+  .highlight-row {
+    background-color: rgba(49, 89, 81, 0.9) !important; 
+  }
+  .search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .search-container input ,.search-container button {
+    padding-left: 10px; 
+    /* width: 250px; */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    margin:20px;
+    transition: transform 0.3s ease-in-out;
+    background: #fff;
+  }
+  
+  .search-container input:focus{
+    border: 1px solid #ccc;
+    outline:none;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  
+  }
+  
+  /* .search-container i {
+    position: absolute;
+    left: 20px; 
+    color: #888; 
+  } */
+  .Link {
+    list-style: none;
+    text-decoration: none; 
+    color: rgba(14, 56, 47, 1);
+    display: flex;
+    align-items: center;
+  }
+  
+  .Link i {
+    margin-right: 8px; 
+    font-size: 16px; 
+  }
+  
+  
+  .Link:hover i {
+    transform: translateX(-5px); 
+  }
+  .main-text-color{
+    color:rgba(79, 79, 79,1) !important;
+  }
+  
+  /* End project-list */
+
+
+  /* start View project */
+.custom-modal .modal-dialog {
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .project-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+  }
+  
+  .manager-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .manager-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  
+  }
+  
+  .project-info {
+    text-align: left;
+  }
+  .vertical-line {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    height: 100%;
+    width: 1px;
+    background-color: #ccc;
+    box-shadow: 5px 0 6px rgba(0, 0, 0, 0.2)}
+  /* End View project */
+
+  .base-button{
+    outline:none;
+    color:white;
+    background-color:rgba(239, 155, 40, 1) ;
+    border:0;
+    border-radius:20px;
+    padding-top:6px;
+    padding-bottom:6px}
+    .cancel_btn {
+        color: rgba(79, 79, 79, 1) !important;
+        border: 1px solid rgba(79, 79, 79, 1) !important;
+      }
+      .cancel_btn:hover {
+        background-color: rgba(79, 79, 79, 1) !important;
+        color:white !important;
+      }
+      /* START USER STYLE */
+
+      .activ-btn{
+        background-color: #009247 !important;
+        color: #fff !important;
+      }
+      .not-activ-btn{
+        background-color: #922E25B2 !important;
+        color: #fff !important;
+      }
+
+      .user-image {
+        width: 200px;
+        height: 200px; 
+        object-fit: cover;
+        border-radius: 50%; 
+    }
+    
+      /* END USER STYLE */
+
+      /* pagination */
+
+      .pagination-container {
+        width: 100%;
+        max-width: 700px; 
+      }
+      
+      @media (min-width: 992px) {
+        .pagination-container {
+          margin: 0 auto !important;
+        }}
