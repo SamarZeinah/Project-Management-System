@@ -5,6 +5,9 @@ import { USERS_URLS } from "../../Services/Urls";
 import { toast } from "react-toastify";
 import ViewUser from "./ViewUser/ViewUser";
 import { ApiResponseForUser, UsersListResponse } from "../Shared/Interfaces/UsersInterface";
+import ActiveConfirmation from "../Shared/ActiveConfirmation/activeConfirmation";
+import Pagination from "../Shared/Pagination";
+
 
 export default function Users() {
 
@@ -14,46 +17,63 @@ export default function Users() {
  const [allUsers, setAllUsers] = useState <UsersListResponse[]>([]);
  const [showUser, setShowUser] = useState(false);
  const [userId, setUserId] = useState<number|null>(null);
-//  const [nameValue, setNameValue] = useState("");
- const [filterType, setFilterType] = useState('userName'); // نوع الفلتر (username أو email)
- const [filterValue, setFilterValue] = useState(''); //
+ const [filterType, setFilterType] = useState('userName'); 
+ const [filterValue, setFilterValue] = useState(''); 
+ const [isActiveConfirmation, setIsActiveConfirmation] = useState(false);
+ const [activById, setActivById] = useState(null)
+ const [isActivated, setIsActivated] = useState('')
+ const [arrayOfPages, setArrayOfPages] = useState<number[]>([])
+ const [totalNumRecords, setTotalNumRecords] = useState(0)
+const [currentPage, setCurrentPage] = useState<number>(1);
+const [pageSize, setPageSize] = useState<number>(5);
+
+
+const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+  setPageSize(Number(e.target.value));
+  getUsers(pageSize,1)
+};
+
+
+ 
 
 //  handelCloseModal
  const handelCloseModal=()=>{setShowUser(false)}
+ const handelCloseconfirm=()=>{setIsActiveConfirmation(false)}
 
 
 
 
 // Function to fetch the active users from the API
- const activeUser=async(id:number)=>{
+ const activeUser=async()=>{
   try {
-    const response = await privateAxiosInstance.put(USERS_URLS.ACTIVE_EMPLOYEE(id));
+    const response = await privateAxiosInstance.put(USERS_URLS.ACTIVE_EMPLOYEE(activById));
     console.log(response);
     getUsers()
     toast.success("Done Successfully")
+    setIsActiveConfirmation(false)
+    
     
   } catch (error) {
     console.log(error);
     
+  }finally{
+    setLoading(false)
   }
   
  }
 
 // Function to fetch the list of users from the API
-  const getUsers = async () => {
+  const getUsers = async (pageSize:Number ,pageNumber:Number) => {
     const params = {
+      pageSize :pageSize,
+          pageNumber :pageNumber,
       [filterType]: filterValue, 
     };
 
     try {
       const response = await privateAxiosInstance.get<ApiResponseForUser>(USERS_URLS.GIT_FILTER_LOGGED_USER, {
               params: params
-                    // userName:userName,
-                    // email:email,
-                    // country:country,
-                    // groups: params?.groups,
-                    // pageSize: params?.pageSize,
-                    // pageNumber: params?.pageNumber,
+                   
       },);
 
   
@@ -61,10 +81,13 @@ export default function Users() {
   
       if (response.data && response.data.data) {
         setAllUsers(response?.data);
-      } else {
-        toast.error('No data found');
+        setTotalNumRecords(response?.data?.totalNumberOfRecords)
+
         
+      } else {
+        toast.error('No data found'); 
       }
+      setArrayOfPages(Array(response?.data?.totalNumberOfPages).fill().map((_,index)=>index+1));
   
       // toast.success(response.data.message );
     } catch (error) {
@@ -88,8 +111,12 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 
   useEffect(() => {
-      getUsers();
-    }, [filterType, filterValue]);
+      getUsers(pageSize,1);
+      setCurrentPage(1);
+    }, [filterType, filterValue,pageSize]);
+
+    
+
 
   return (
     <>
@@ -101,7 +128,7 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     </div>
 
     <div className="table-container">
-      <div className="search-container">
+      <div className="search-container d-flex flex-column flex-md-row">
         <input 
         value={filterValue}
         onChange={handleInputChange}
@@ -120,7 +147,8 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       </div>
     
 
-      <Table striped bordered hover className="overflow-auto">
+      <div className="table-responsive">
+      <Table striped bordered hover >
         <thead>
           <tr>
             <th className="highlight-row text-white p-3">User Name</th>
@@ -154,7 +182,7 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               <ul className="dropdown-menu">
 
               <li>
-                      <button className="dropdown-item" type="button" onClick={()=>{activeUser(user.id)}}> 
+                      <button className="dropdown-item" type="button" onClick={()=>{setIsActiveConfirmation(true),setActivById(user.id),setIsActivated(user.isActivated)}}> 
                       <i className="fa-solid fa-ban text-danger me-2"></i>{user.isActivated==true?"Block":"Unblock"} </button>
                     </li>
 
@@ -178,12 +206,22 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         </tbody>
 
       </Table>
+      </div>
     </div>
     {showUser&&<ViewUser userId={userId} handelCloseModal={handelCloseModal}/>}
+   {isActiveConfirmation&&<ActiveConfirmation isActivated={isActivated} handelCloseconfirm={handelCloseconfirm} activeUser={activeUser} loading={loading}/>}
+   <Pagination
+  changePageSize={changePageSize}
+  totalNumRecords={totalNumRecords}
+  currentPage={currentPage}
+  setCurrentPage={setCurrentPage}
+  getUsers={getUsers} // Function signature matches the updated type
+  arrayOfPages={arrayOfPages}
+  pageSize={pageSize}
+/>
     
 
   </>
   );
+
 }
-
-

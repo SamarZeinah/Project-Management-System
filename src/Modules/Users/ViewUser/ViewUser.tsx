@@ -44,7 +44,7 @@ export default function ViewUser({handelCloseModal,userId}) {
 
         </Modal.Header>
         {loading?"Loading....": <Modal.Body>
-          <div className="content">
+          <div className="content text-center ">
           <div> <img  className='text-center  user-image'  src={userById.imagePath?`${imgURL}${userById.imagePath}`:avatarImag} alt="User Image" />
               <div className="text-start mt-3 modal-detail px-3">
                 <h6>  <span className='fw-bold' >ID: </span>{userById.id}</h6>

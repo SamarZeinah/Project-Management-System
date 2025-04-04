@@ -3,7 +3,7 @@ import { Form,Col, Row } from 'react-bootstrap';
 import { IPaginationProps } from './Interfaces/PaginationInterface';
 
 
-export default function Pagination({changePageSize,totalNumRecords,currentPage,setCurrentPage,getAllTasks,pageSize,numOfPagesArray} :IPaginationProps) {
+export default function Pagination({changePageSize,totalNumRecords,currentPage,setCurrentPage,getUsers,pageSize,arrayOfPages} :IPaginationProps) {
   return (
     <Row
   className="pagination-container d-flex align-items-center justify-content-center mb-4 py-4 px-2"
@@ -44,7 +44,7 @@ export default function Pagination({changePageSize,totalNumRecords,currentPage,s
         if (currentPage > 1) {
           const previousPage = currentPage - 1;
           setCurrentPage(previousPage);
-          getAllTasks(pageSize, previousPage, null, null);
+          getUsers(pageSize, previousPage, null, null);
         }
       }}
       style={{
@@ -55,23 +55,23 @@ export default function Pagination({changePageSize,totalNumRecords,currentPage,s
     ></li>
 
     <span className="mx-2" style={{ fontSize: "0.9rem" }}>
-      Page {currentPage} of {numOfPagesArray.length}
+      Page {currentPage} of {arrayOfPages.length}
     </span>
 
     <li
       className={`fa-solid fa-greater-than mx-2 ${
-        currentPage === numOfPagesArray.length ? "disabled" : ""
+        currentPage === arrayOfPages.length ? "disabled" : ""
       }`}
       onClick={() => {
-        if (currentPage < numOfPagesArray.length) {
+        if (currentPage < arrayOfPages.length) {
           const nextPage = currentPage + 1;
           setCurrentPage(nextPage);
-          getAllTasks(pageSize, nextPage, null, null);
+          getUsers(pageSize, nextPage, null, null);
         }
       }}
       style={{
-        pointerEvents: currentPage === numOfPagesArray.length ? "none" : "auto",
-        opacity: currentPage === numOfPagesArray.length ? 0.5 : 1,
+        pointerEvents: currentPage === arrayOfPages.length ? "none" : "auto",
+        opacity: currentPage === arrayOfPages.length ? 0.5 : 1,
         fontSize: "0.9rem",
       }}
     ></li>

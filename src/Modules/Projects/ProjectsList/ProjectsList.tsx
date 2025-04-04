@@ -99,7 +99,8 @@ const ProjectsList = () => {
           placeholder="Search by title" 
           onChange={getNameValue}/>
         </div>
-
+        <div className="table-responsive">
+        
         <Table striped bordered hover>
           <thead>
             <tr className='p'>
@@ -156,6 +157,8 @@ const ProjectsList = () => {
           </tbody>
 
         </Table>
+        </div>
+        
       </div>
       {/* DeletetionConfirmation */}
       {showDeleteConfirmation&&<DeletetionConfirmation
