@@ -30,8 +30,6 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
   const submit :SubmitHandler<ILoginCredentials> = async (data) => {
       try {
         const response = await publicAxiosInstance.post(USERS_URLS.LOGIN, data);
-
-        console.log(response);
         localStorage.setItem("token", response?.data?.data?.token);
         
 
