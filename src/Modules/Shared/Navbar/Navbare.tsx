@@ -12,7 +12,7 @@ import logoNav from '../../../assets/nav-logo.png'
 
 export default function Navbare() {
 
-const {currentUser,loginData}=useContext(AuthContext)
+const {currentUser}=useContext(AuthContext)
  
 
 
@@ -23,15 +23,18 @@ return  <Navbar expand="lg" className="bg-body-tertiary  ">
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ms-auto">
       <Nav.Link  className="d-flex align-items-center">
-        <img 
-        src={
-          loginData?.userGroup === "Manager"
-        ? personalimg 
-        : currentUser?.imagePath
+      {currentUser ? (
+  <img 
+    src={
+      currentUser.imagePath
         ? `${imgURL}/${currentUser.imagePath}`
-        : personalimg 
-        }
-         alt="personal-img" width={40} />
+        : personalimg
+    }
+    alt="User"
+    width={40}
+  />
+) : null}
+
         <div className="mx-2">
           <h6 className="mb-0 ">{currentUser?.userName}</h6>
           <p className="mb-0">{currentUser?.email}</p>
