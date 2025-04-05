@@ -1,10 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { privateAxiosInstance } from "../Services/Axiosinstanc";
-import { ProjectsContextType } from "../Modules/Shared/Interfaces/Taskinterface";
+import { ProjectsContextType } from "../Modules/Shared/Interfaces/Taskinterfacekk";
 
-const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined);
+const ProjectsContext = createContext<ProjectsContextType | undefined>(
+  undefined
+);
 
-export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [projects, setProjects] = useState<ProjectsContextType>([]);
 
   const getProjects = async () => {
@@ -22,7 +26,11 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     getProjects();
   }, []);
 
-  return <ProjectsContext.Provider value={{ projects }}>{children}</ProjectsContext.Provider>;
+  return (
+    <ProjectsContext.Provider value={{ projects }}>
+      {children}
+    </ProjectsContext.Provider>
+  );
 };
 
 export const useProjects = () => {
