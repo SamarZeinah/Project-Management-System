@@ -6,6 +6,7 @@ import DoughnutUsers from "../Shared/DoughnutCharts/DoughnutUsers/DoughnutUsers"
 
 export default function Dashboard() {
   const {loginData}=useContext(AuthContext)
+
   return <>
  
 
@@ -15,17 +16,18 @@ export default function Dashboard() {
   </div>
 
   <Container>
-    <Row className="justify-content-center g-2"  >
+    <Row className=" g-2"  >
       <Col sm={5} className="mx-md-3 mx-1">
       <div className=" mx-md-4 ">
       <DoughnutTasks/>
       </div>
       </Col>
-      <Col sm={5} className="mx-3">
+      {loginData?.userGroup!=='Employee'?  <Col sm={5} className="mx-3">
       <div className=" mx-md-4 justify-content-center">
       <DoughnutUsers/>
       </div>
-      </Col>
+      </Col>:""}
+    
     </Row>
   </Container>
   </>

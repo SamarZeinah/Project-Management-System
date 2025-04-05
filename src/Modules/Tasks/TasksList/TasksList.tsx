@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { ITask } from "../../Shared/Interfaces/TasksInterface.ts";
 import ViewTaskModal from "../ViewTaskModal/ViewTaskModal.tsx";
 import Pagination from "../../Shared/Pagination/Pagination.tsx";
+import Loading from "../../Shared/Loading/Loading.tsx";
 
 
 export default function TasksList() {
@@ -245,7 +246,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
                     {loading ? (
                       <tr>
                         <td className="text-center" colSpan={6}>
-                          <span>Loading...</span>
+                        <Loading/>
                         </td>
                       </tr>
                     ) : tasksData.length > 0 ? (
