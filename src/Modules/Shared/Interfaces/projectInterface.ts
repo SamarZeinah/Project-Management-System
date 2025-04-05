@@ -7,14 +7,39 @@ export interface Task {
     modificationDate: string;
   }
   
-  export interface Project {
+  // export interface Project {
+  //   id: number;
+  //   title: string;
+  //   description: string;
+  //   creationDate: string;
+  //   modificationDate: string;
+  //   task: Task[];
+  // }
+
+export  interface ProjectManager {
+    id: number;
+    userName: string;
+    imagePath: string;
+    email: string;
+    password: string;
+  }
+  
+ export interface Project {
     id: number;
     title: string;
     description: string;
     creationDate: string;
     modificationDate: string;
-    task: Task[];
+    manager: ProjectManager;
+    task: any[];
   }
+  
+ export interface ViewProjectProps {
+    show: boolean;
+    handleClose: () => void;
+    showProjectId: number;
+  }
+  
   
   export interface PaginatedProjectsResponse {
     pageNumber: number;

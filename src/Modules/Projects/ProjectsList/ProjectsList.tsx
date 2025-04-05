@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import { privateAxiosInstance } from '../../../Services/Axiosinstanc';
 import { PROJECTS_URLS } from '../../../Services/Urls';
 import { toast } from 'react-toastify';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { PaginatedProjectsResponse } from '../../Shared/Interfaces/projectInterface';
 import DeletetionConfirmation from '../../Shared/DeletionConfirmation/DeletetionConfirmation';
 import ViewProject from './ViewProject';
@@ -14,6 +14,7 @@ const ProjectsList = () => {
   const [projectDelete, setProjectDelete] = useState<number|null>(null);
   const [showProject, setShowProject] = useState(false);
   const [showProjectId, setShowProjectId] = useState<number|null>(null);
+  // const {currentUser}=useContext(AuthContext)  
 
   console.log("projectDelete",projectDelete);
   const [ProjectData, setProjectData] = useState<PaginatedProjectsResponse>({

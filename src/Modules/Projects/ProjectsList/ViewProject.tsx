@@ -4,30 +4,8 @@ import { imgURL, privateAxiosInstance } from '../../../Services/Axiosinstanc';
 import { PROJECTS_URLS } from '../../../Services/Urls';
 import { toast } from 'react-toastify';
 import profile from '../../../assets/profile.jpg';
+import { Project, ViewProjectProps } from '../../Shared/Interfaces/projectInterface';
 
-interface ProjectManager {
-  id: number;
-  userName: string;
-  imagePath: string;
-  email: string;
-  password: string;
-}
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  creationDate: string;
-  modificationDate: string;
-  manager: ProjectManager;
-  task: any[];
-}
-
-interface ViewProjectProps {
-  show: boolean;
-  handleClose: () => void;
-  showProjectId: number;
-}
 
 const ViewProject: React.FC<ViewProjectProps> = ({ show, handleClose, showProjectId }) => {
   const [loading, setLoading] = useState(true);
