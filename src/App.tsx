@@ -29,25 +29,25 @@ function App() {
         {path:'login',element:<Login/>},
         {path:'register',element:<Register/>},
         {path:'forget-password',element:<ForgetPassword/>},
-        {path:'change-password',element:<ChangePassword/>},
         {path:'reset-password',element:<ResetPassword/>},
         {path:'verify-account',element:<VerifyAccount/>},
-
+        {path:'change-password',element:<ProtectedRoutes  allowedGroups={["Manager","Employee"]} > <ChangePassword/> </ProtectedRoutes>},
+        
       ]
     },
-
+    
     // master layout
-
+    
     {
       path:'dashboard',
-      element:<ProtectedRoutes ><MasterLayout/></ProtectedRoutes>,
+      element:<MasterLayout/>,
       errorElement:<NotFound/>,
       children:[
         // home
-        {index:true,element:<Dashboard />},
-        {path:'users',element:<Users />},
-        {path:'projects',element:<ProjectsList />},
-        {path:'tasks',element:<TasksList />},
+        {index:true,element:<ProtectedRoutes allowedGroups={["Manager","Employee"]} > <Dashboard /> </ProtectedRoutes> },
+        {path:'users',element:<ProtectedRoutes allowedGroups={["Manager"]} > <Users /> </ProtectedRoutes> },
+        {path:'projects',element:<ProtectedRoutes allowedGroups={["Manager","Employee"]} > <ProjectsList /> </ProtectedRoutes> },
+        {path:'tasks',element:<ProtectedRoutes allowedGroups={["Manager","Employee"]} > <TasksList /> </ProtectedRoutes> },
       ]
       }
 
