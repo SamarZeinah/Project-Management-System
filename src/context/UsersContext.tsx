@@ -1,9 +1,6 @@
 import React from 'react'
 
-
-
-
-export default function Title() {
+export default function UsersContext() {
   return (
     <div>
       

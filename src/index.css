@@ -290,6 +290,80 @@ color: rgba(14, 56, 47, 1);
     font-weight: 400;
     font-size: 30px;
 }
+
+
+
+/* add & edit tasks form */
+.title-task {
+    height: 4rem;
+    color: #0E382F;
+    padding: 3rem;
+    background-color: white;
+
+    a{
+        text-decoration: none;
+        color: #0E382F;
+        font-weight: 400;
+        font-size: 14px;
+    }
+    h1{
+        font-weight: 600;
+        font-size: 24px;
+        margin-top: 0.5rem;
+    }
+}
+
+.task-form  {
+   color:  #4F4F4F;
+    width: 70%;
+    margin-inline: auto;
+    background-color: white;
+    border-radius: 16px;
+    margin-top: 5rem;
+    font-weight: 400;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    input::placeholder {
+        color: #C1C1C1;
+      }
+   
+
+}
+.task-form .form-control ,.task-form select{
+    color:#0E382F !important ;
+    border-radius: 16px;
+    margin-bottom: 0.8rem;
+    padding-inline: 1rem;
+    padding-block: 0.8rem;
+}
+.task-form .row{
+  padding: 2rem;
+  padding-bottom: 1rem;
+}
+.task-form .select-div{
+    flex-grow: 1;
+}
+
+.task-form .buttons-div{
+border-top:solid 1px #D9D9D9;
+display: flex;
+justify-content: space-between;
+padding-inline: 2rem;
+padding-block: 1rem;
+align-items: center;
+
+.save-btn{
+    background-color: #EF9B28;
+    color: white;
+    border-color: #EF9B28;
+}
+.cancel-btn{
+    background-color: white;
+    border:solid 1px #0E382F;
+    color: #0E382F !important;
+}}
+
 /* chart styling */
 .card-info{
     border-radius: 15px;
