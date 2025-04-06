@@ -19,6 +19,7 @@ export const USERS_URLS={
 }
 
 
+
 // Projects_URLS
 export const PROJECTS_URLS={
     CREATE_PROJECT:"/Project",
@@ -30,3 +31,24 @@ export const PROJECTS_URLS={
     GET_ALL_PROJECTS:`/Project/`,
 
 }
+
+
+//tasks count
+export const TASK_Count={
+    GET_TASKS_COUNT:'/Task/count'
+}
+
+
+// TASKS_URLS
+export const TASKS_URLS = {
+    CREATE_TASK:`/Task`,
+    GET_ALL_MY_TASKS:`/Task`,
+    GET_ALL_MY_TASKS_FOR_MANAGER:`/Task/manager`,
+    GET_TASK_BY_ID:(id:number)=>`/Task/${id}`,
+    UPDATE_TASK:(id:number)=>`/Task/${id}`,
+    DELETE_TASK:(id:number)=>`/Task/${id}`,
+    COUNT_TASKS_FOR_MANAGER_EMPLOYEE:`/Task/count`,
+    CHANGE_TASK_STATUS_BY_EMPLOYEE:(id:number)=>`/Task/${id}/change-status`,
+    GET_TASKS_BY_PROJECT:(id:number)=>`/Task/project/${id}`,
+}
+

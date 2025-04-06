@@ -1,0 +1,85 @@
+:root {
+  --darkGreen: rgba(14, 56, 47, 1);
+  --darkYellow: rgba(239, 155, 40, 1);
+  --lightGreen: rgba(49, 89, 81, 0.9);
+  --lightYellow: rgba(239, 155, 40, 0.64)
+
+}
+
+.login_title {
+    color:var(--darkYellow);
+}
+
+.label {
+    color: var(--darkYellow);
+    margin: 0 !important;
+}
+
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+input[type="password"]::-webkit-input-placeholder {
+    /* Safari */
+    display: none;
+}
+.input_group_text {
+    color: white !important;
+    background-color: transparent !important;
+    border:none !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid white !important;
+    border-radius:0 !important;
+    -webkit-border-radius:0 !important;
+    -moz-border-radius:0 !important;
+    -ms-border-radius:0 !important;
+    -o-border-radius:0 !important;
+}
+
+input {
+    background-color: transparent !important;
+    display: block; 
+    margin: 0 auto; 
+    border: 0 !important; 
+    border-bottom: 1px solid white !important;
+    border-radius: 0 !important; 
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -ms-border-radius: 0 !important;
+    -o-border-radius: 0 !important;
+    color: white !important;
+}
+input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: inherit !important;
+    background-color: transparent !important;
+}
+
+
+
+
+
+
+/* Default placeholder style for larger screens */
+input::placeholder, 
+select::placeholder {
+  font-size: 16px; 
+  color: rgb(175, 176, 178) !important;
+}
+
+
+.custom_btn {
+    background-color: var(--darkYellow) !important;
+    color: white !important;
+    width: 90%;
+    font-weight: bold !important;
+    padding: 20px 20px !important;
+    border-radius: 30px !important;
+    -webkit-border-radius: 30px !important;
+    -moz-border-radius: 30px !important;
+    -ms-border-radius: 30px !important;
+    -o-border-radius: 30px !important;
+    border: none !important
+}

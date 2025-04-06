@@ -16,7 +16,7 @@ const {currentUser,loginData}=useContext(AuthContext)
  
 
 
-return  <Navbar expand="lg" className="bg-body-tertiary">
+return  <Navbar expand="lg" className="bg-body-tertiary  ">
 <Container>
   <Navbar.Brand ><Link to={'/dashboard'}><img src={logoNav} alt="logo" /></Link></Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
