@@ -54,12 +54,12 @@ const ResetPassword = () => {
       <Container className=" mt-5">
      <div className="mb-5">
      <p className="text-white mb-1">welcome to PMS</p>
-     <h2 className="main-style position-relative">Resset Password</h2>
+     <h2 className="main-style heading-style position-relative">Resset Password</h2>
      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="mb-3">
     <div>
       <label htmlFor="emailInput" className="form-label main-style">E-mail</label>
-        <input {...register("email",Password_Validation)}
+        <input {...register("email",Email_Validation )}
           type="text"
           className="form-control custom-input p-3"
           id="emailInput"
@@ -83,7 +83,7 @@ const ResetPassword = () => {
       {/* NEW PASSWORD */}
       <label htmlFor="passwordInput" className="form-label main-style mt-3">New Password</label>
         <div className="input-group flex-nowrap">
-        <input {...register("password", Email_Validation)}
+        <input {...register("password",Password_Validation )}
            type={visible.password? "text" : "password"}
           className="form-control custom-input p-3"
           id="passwordInput"
