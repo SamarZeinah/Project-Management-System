@@ -3,7 +3,7 @@ import { Form,Col, Row } from 'react-bootstrap';
 import { IPaginationProps } from './Interfaces/PaginationInterface';
 
 
-export default function Pagination({changePageSize,totalNumRecords,currentPage,setCurrentPage,getUsers,pageSize,arrayOfPages} :IPaginationProps) {
+export default function Pagination({changePageSize,totalNumRecords,currentPage,setCurrentPage,getAll,pageSize,arrayOfPages} :IPaginationProps) {
   return (
     <Row
   className="pagination-container d-flex align-items-center justify-content-center mb-4 py-4 px-2"
@@ -66,7 +66,7 @@ export default function Pagination({changePageSize,totalNumRecords,currentPage,s
         if (currentPage < arrayOfPages.length) {
           const nextPage = currentPage + 1;
           setCurrentPage(nextPage);
-          getUsers(pageSize, nextPage, null, null);
+          getAll(pageSize, nextPage, null, null);
         }
       }}
       style={{

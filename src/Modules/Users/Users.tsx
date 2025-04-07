@@ -215,7 +215,7 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   totalNumRecords={totalNumRecords}
   currentPage={currentPage}
   setCurrentPage={setCurrentPage}
-  getUsers={getUsers} // Function signature matches the updated type
+  getAll={getUsers} // Function signature matches the updated type
   arrayOfPages={arrayOfPages}
   pageSize={pageSize}
 />
