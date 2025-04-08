@@ -100,7 +100,7 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
             )}
 
            <InputGroup.Text    onClick={()=>toggleVisibility('password')}  className={`${styles.input_group_text}`}>
-          <i className={`fa-regular ${visible.password ? "fa-eye-slash" : "fa-eye"}`}></i>
+          <i className={`fa-regular ${visible.password ? "fa-eye" : "fa-eye-slash"}`}></i>
         </InputGroup.Text>
         </InputGroup>
       </Form.Group>

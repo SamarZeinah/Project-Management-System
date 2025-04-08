@@ -7,12 +7,11 @@
 /* Parent container to prevent scrolling and center content start*/
 .main-content {
   min-height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   transition: margin-left 0.3s ease; 
 }
 
 .outlet-wrapper {
-  max-width: 1400px; /* Set a max width for the content */
   width: 100%; /* Ensure it spans fully */
   text-align: center;
   display: flex;
@@ -367,9 +366,8 @@ border-left: 3px solid rgba(239, 155, 40, 1);
 }
 .table {
   border: none;
-
-
 }
+
 .table th, .table td {
   padding: 12px; 
   border: none;
@@ -527,3 +525,51 @@ padding-bottom:6px
     margin: 0 auto !important; 
   }
 }
+
+
+/* Employee tasks start */
+
+.task-bg {
+  background-color: rgba(49, 89, 81, 0.9);
+  color: white;
+  height:65vh !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.task-title{
+  background-color:var(--main-color);
+  width: 90% !important;
+}
+
+/* For larger screens (above 992px) */
+@media (min-width: 992px) {
+  .mobile-accordion {
+    display: none;
+  }
+  .desktop-tasks {
+    display: block;
+  }
+}
+
+/* For tablet screens (768px to 992px) */
+/* @media (min-width: 768px) and (max-width: 991px) {
+  .mobile-accordion {
+    display: block;
+  }
+  .desktop-tasks {
+    display: none;
+  }
+} */
+
+/* For mobile screens (below 768px) */
+/* @media (max-width: 767px) {
+  .mobile-accordion {
+    display: block;
+  }
+  .desktop-tasks {
+    display: none;
+  }
+} */
+
+/* Employee tasks end */
