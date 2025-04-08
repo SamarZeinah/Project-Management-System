@@ -16,6 +16,9 @@ import Dashboard from './Modules/Dahboard/Dashboard'
 import Users from './Modules/Users/Users'
 import ProjectsList from './Modules/Projects/ProjectsList/ProjectsList'
 import TasksList from './Modules/Tasks/TasksList/TasksList'
+import ProjectsData from './Modules/Projects/ProjectsData/ProjectsData'
+import TasksData from './Modules/Tasks/TasksData/TasksData'
+
 
 
 function App() {
@@ -47,7 +50,12 @@ function App() {
         {index:true,element:<Dashboard />},
         {path:'users',element:<Users />},
         {path:'projects',element:<ProjectsList />},
+        {path:'projects-data',element:<ProjectsData/>},
+        {path:'projects-data/new-project',element:<ProjectsData/>},
+      {path:'projects-data/:projectid',element:<ProjectsData/>},
         {path:'tasks',element:<TasksList />},
+        {path:'add-task',element:<TasksData/>},
+        {path:'edit-task/:id',element:<TasksData/>},
       ]
       }
 
