@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import {  NavLink,  useNavigate } from "react-router-dom";
@@ -10,12 +10,15 @@ import tasksIcon  from '../../../assets/tasks-icon.png'
 import projectsIcon  from '../../../assets/projects-icon.png'
 import changeIcon  from '../../../assets/change-icon.png'
 import logoutIcon  from '../../../assets/logout-icon.png'
+import { AuthContext } from "../../../context/AuthContext";
 
 
 
 export default function SideBare() {
 
   const navigate=useNavigate()
+  const {loginData}=useContext(AuthContext)
+
 
   const [isCollapsed,setIsCollapsed]=useState(false)
 
@@ -61,7 +64,8 @@ useEffect(()=>{
     }}>
     <MenuItem className="mt-4 mx-1 pb-4 sideli"onClick={toggleCollapse}  icon={<i className={`fas ${isCollapsed?'fa-arrow-right':"fa-arrow-left"} cursor-pointer`} ></i>}> </MenuItem>
     <MenuItem  className="mt-4" component={<NavLink to="/dashboard" end/>} icon	={<img src={homeIcon} alt="homeicon"/>} > Home </MenuItem>
-   <MenuItem component={<NavLink to="/dashboard/users"  />}  icon	={<img src={userIcons} alt="usersicon"/>} > Users </MenuItem> 
+    {loginData?.userGroup!=='Employee'?   <MenuItem component={<NavLink to="/dashboard/users"  />}  icon	={<img src={userIcons} alt="usersicon"/>} > Users </MenuItem> :""}
+
    <MenuItem component={<NavLink to="/dashboard/projects"  />}  icon	={<img src={projectsIcon} alt="projectsicon"/>} > Projects </MenuItem> 
    <MenuItem component={<NavLink to="/dashboard/tasks"  />}  icon	={<img src={tasksIcon} alt="tasksicon"/>} > Tasks </MenuItem> 
    <MenuItem component={<NavLink to="/change-password"  />}  icon	={<img src={changeIcon} alt="changeicon" width={16}/>} > Change Password </MenuItem> 
