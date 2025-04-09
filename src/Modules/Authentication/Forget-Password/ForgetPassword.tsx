@@ -28,7 +28,7 @@ const ForgetPassword = () => {
     } catch (error) {
       console.log(error);
       // toast.error(error?.message||"" );
-      // toast.error(error?.response?.data.message||"" );
+      toast.error(error?.response?.data.message||"" );
 
       
     }
@@ -39,7 +39,7 @@ const ForgetPassword = () => {
     <Container className=" mt-5">
      <div className="mb-5">
      <p className="text-white mb-1">welcome to PMS</p>
-     <h2 className="main-style position-relative">Forget Password</h2>
+     <h2 className="main-style heading-style position-relative">Forget Password</h2>
      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="mb-3">
         <label htmlFor="emailInput" className="form-label main-style">E-mail</label>

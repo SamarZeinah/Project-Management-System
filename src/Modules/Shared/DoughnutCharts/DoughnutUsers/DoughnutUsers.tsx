@@ -64,7 +64,7 @@ export default function DoughnutUsers() {
           <p>Lorem ipsum dolor sit amet,consecteture</p>
         </div>
         <Row className="px-3 g-3">
-            {userStatuses.map((user)=> <Col sm={4}>
+            {userStatuses.map((user)=> <Col >
             <Card className={`${user.className} p-3 h-100` } >
             <span className="rounded-full d-flex justify-content-center align-items-center rounded-circle circle">   <i className={user.icon}></i></span>
     

@@ -58,6 +58,7 @@ export  interface ILoginData {
   exp: number; 
 }
 
+
 export interface ILoginCredentials {
   email:string;
   password:string;
