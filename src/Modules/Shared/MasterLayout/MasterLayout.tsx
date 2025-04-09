@@ -17,7 +17,7 @@ export default function MasterLayout() {
  
  <SideBare/>
  
-<div className={`main-content w-100 d-flex flex-column align-items-center justify-content-center`} >
+<div className={`main-content w-100 d-flex flex-column align-items-center `} >
 
 <div className={pathname!=='/dashboard'? 'outlet-wrapper':"w-100"}>
 <Outlet/>

@@ -1,12 +1,18 @@
+
 import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import { privateAxiosInstance } from '../../../Services/Axiosinstanc';
 import { PROJECTS_URLS } from '../../../Services/Urls';
 import { toast } from 'react-toastify';
 import { useContext, useEffect, useState } from 'react';
-import { PaginatedProjectsResponse } from '../../Shared/Interfaces/projectInterface';
+// import { PaginatedProjectsResponse } from '../../Shared/Interfaces/projectInterface';
 import DeletetionConfirmation from '../../Shared/DeletionConfirmation/DeletetionConfirmation';
 import ViewProject from './ViewProject';
+import { AuthContext } from '../../../context/AuthContext';
+import Pagination from '../../Shared/Pagination';
+import Actions from '../../Shared/Actions/Actions';
+
+
 const ProjectsList = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -14,18 +20,30 @@ const ProjectsList = () => {
   const [projectDelete, setProjectDelete] = useState<number|null>(null);
   const [showProject, setShowProject] = useState(false);
   const [showProjectId, setShowProjectId] = useState<number|null>(null);
-  // const {currentUser}=useContext(AuthContext)  
+  const {currentUser}=useContext(AuthContext)  
+  const [arrayOfPages, setArrayOfPages] = useState<number[]>([])
+ const [totalNumRecords, setTotalNumRecords] = useState(0)
+const [currentPage, setCurrentPage] = useState<number>(1);
+const [pageSize, setPageSize] = useState<number>(5);
+console.log("projectDelete",projectDelete);
+const [ProjectData, setProjectData] = useState<PaginatedProjectsResponse>({
+  pageNumber: 1,
+  pageSize: 10,
+  data: [], 
+  totalNumberOfRecords: 0,
+  totalNumberOfPages: 1
+});
 
-  console.log("projectDelete",projectDelete);
-  const [ProjectData, setProjectData] = useState<PaginatedProjectsResponse>({
-    pageNumber: 1,
-    pageSize: 10,
-    data: [], 
-    totalNumberOfRecords: 0,
-    totalNumberOfPages: 1
-  });
+const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+  setPageSize(Number(e.target.value));
+  getProjects(pageSize,1)
+};
+
+
+ 
   
-  console.log('ProjectData', ProjectData);
+ 
+;
 
   // Fetch projects
   const getProjects = async (pageSize: number, pageNumber: number,title:string) => {
@@ -38,6 +56,7 @@ const ProjectsList = () => {
   
       if (response.data && response.data.data) {
         setProjectData(response.data);
+        setTotalNumRecords(response?.data?.totalNumberOfRecords)
       } else {
         toast.error('No data found');
         setProjectData({
@@ -50,6 +69,7 @@ const ProjectsList = () => {
       }
   
       // toast.success(response.data.message || 'Fetching Projects Successfully!');
+      setArrayOfPages(Array(response?.data?.totalNumberOfPages).fill().map((_,index)=>index+1));
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'An unexpected error occurred.');
     } finally {
@@ -72,25 +92,28 @@ const ProjectsList = () => {
   };
   
   useEffect(() => {
-    getProjects(10, 1,"");
-  }, []);
+    getProjects(pageSize, 1,"");
+    setCurrentPage(1);
+  }, [pageSize]);
 //filter
   const getNameValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     getProjects(10, 1,e.target.value);
   
   };
+
   return (
     <>
       <div className="project-list d-flex justify-content-between text-md-start flex-md-row flex-column text-center py-4 px-5">
         <div className="content">
           <h3 className="main-text-color">Projects</h3>
         </div>
-        <div className="button">
+        {currentUser.group.name==="Manager"? <div className="button">
           <button className="base-button px-5" onClick={() => navigate('/dashboard/projects-data')}>
             + Add New Project
           </button>
-        </div>
+        </div>:""}
+       
       </div>
 
       <div className="table-container">
@@ -109,7 +132,8 @@ const ProjectsList = () => {
               <th className="highlight-row text-white p-3">Description</th>
               <th className="highlight-row text-white p-3">Num Tasks</th>
               <th className="highlight-row text-white p-3">Date Created</th>
-              <th className="highlight-row text-white p-3">Action</th>
+              {currentUser.group.name==="Manager"?<th className="highlight-row text-white p-3">Action</th>:""}
+              
             </tr>
           </thead>
           <tbody>
@@ -126,13 +150,14 @@ const ProjectsList = () => {
                   <td>{project.description}</td>
                   <td>{project.task ? project.task.length : 0}</td> 
                   <td>{new Date(project.creationDate).toLocaleDateString()}</td>
-                  <td>
-            <div className="dropdown">
+                {currentUser.group.name==="Manager"?  <td>
+            {/* <div className="dropdown">
                 <button className="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="fas fa-ellipsis-v"></i>
               </button>
               <ul className="dropdown-menu">
-                  <li><button className="dropdown-item" type="button"onClick={()=>{setShowProject(true);setShowProjectId(project.id);}}><i className="fa-solid fa-eye text-success"></i> View Project</button></li>
+                  <li><button className="dropdown-item" type="button"onClick={()=>{setShowProject(true);setShowProjectId(project.id);}}>
+                    <i className="fa-solid fa-eye text-success"></i> View Project</button></li>
                 
                     <li>
                       <button className="dropdown-item" type="button" onClick={()=>{setShowDeleteConfirmation(true);setProjectDelete(project.id);}}> 
@@ -144,8 +169,9 @@ const ProjectsList = () => {
                     <i className="fa-solid fa-pen-to-square text-warning"></i> Edit Project</button>
                     </li>
                 </ul>
-              </div>
-            </td>
+              </div> */}
+              <Actions navigate={navigate} setShowDeleteConfirmation={setShowDeleteConfirmation} setProjectDelete={setProjectDelete} setShowProjectId={setShowProjectId} project={project} setShowProject={setShowProject}/>
+            </td>:""}
                 </tr>
               ))
             ) : (
@@ -173,7 +199,23 @@ const ProjectsList = () => {
       show={showProject}
       showProjectId={showProjectId}
       />}
-    </>
+
+      {/* Pagination */}
+
+      <Pagination
+           changePageSize={changePageSize}
+           totalNumRecords={totalNumRecords}
+           currentPage={currentPage}
+           setCurrentPage={setCurrentPage}
+           getAll={getProjects}// Function signature matches the updated type
+           arrayOfPages={arrayOfPages}
+           pageSize={pageSize}
+         />
+   
+
+      
+
+        </> 
   );
 };
 
