@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 import { ITask } from "../../Shared/Interfaces/TaskInterface.ts";
 import ViewTaskModal from "../ViewTaskModal/ViewTaskModal.tsx";
 import Pagination from "../../Shared/Pagination/Pagination.tsx";
-import Loading from "../../Shared/Loading/Loading.tsx";
 
 export default function TasksList() {
   const navigate = useNavigate();
@@ -322,105 +321,7 @@ export default function TasksList() {
                         </Dropdown>
                       </td>
                     </tr>
-
-                  </thead>
-                  <tbody>
-                    {loading ? (
-                      <tr>
-                        <td className="text-center" colSpan={6}>
-                        <Loading/>
-                        </td>
-                      </tr>
-                    ) : tasksData.length > 0 ? (
-                      tasksData.map((task: ITask) => (
-                        <tr key={task.id}>
-                          <td className="order-1">{task.title}</td>
-                          <td className="order-2">{getStatusBadge(task?.status)}</td>
-                          <td className="d-none d-lg-table-cell order-3">{task?.employee?.userName}</td>
-                          <td className="d-none d-lg-table-cell order-4">{task?.project?.title}</td>
-                          <td className="d-none d-lg-table-cell order-5">{new Date(task.creationDate).toLocaleDateString()}</td>
-                          <td className="order-last">
-                            <Dropdown>
-                              <Dropdown.Toggle id="dropdown-basic" bsPrefix="custom-dropdown-toggle">
-                                <i className="fa-solid fa-ellipsis-vertical"></i>
-                              </Dropdown.Toggle>
-                              <Dropdown.Menu>
-                                <Dropdown.Item
-                                  onClick={() => {
-                                    handleShowView(task?.id);
-                                    setTaskId(task?.id);
-                                  }}
-                                >
-                                  <i className="fa-solid fa-eye text-success"></i> View
-                                </Dropdown.Item>
-                                <Dropdown.Item
-                                  onClick={() => {
-                                    handleShowDelete(task?.id, task?.title);
-                                    setTaskId(task?.id);
-                                    setSelectedTaskTitle(task?.title);
-                                  }}
-                                >
-                                  <i className="fa-solid fa-trash text-danger"></i> Delete
-                                </Dropdown.Item>
-                                <Dropdown.Item onClick={() => navigate(`/dashboard/edit-task/${task?.id}`)}>
-                                  <i className="fa-solid fa-pen-to-square text-warning"></i> Edit
-                                </Dropdown.Item>
-                              </Dropdown.Menu>
-                            </Dropdown>
-                          </td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td className="text-center" colSpan={6}>
-                          No Data
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </Table>
-
-
-
-
-<Pagination
-  changePageSize={changePageSize}
-  totalNumRecords={totalNumRecords}
-  currentPage={currentPage}
-  setCurrentPage={setCurrentPage}
-  getAllTasks={getAllTasks} // Function signature matches the updated type
-  numOfPagesArray={numOfPagesArray}
-  pageSize={pageSize}
-/>
-
-
-
-
-              </div>
-              {/* Delete nConfirmation start*/}
-        
-              <DeleteConfirmation
-                showDelete={showDelete}
-                handleCloseDelete={handleCloseDelete}
-                deleteFunction={deleteTask}
-                deletedItem={"Task"}
-                name={selectedTaskTitle}
-              />
-              {/* Delete Confirmation end*/}
-
-              {/* View Task Modal start*/}
-                <ViewTaskModal
-                  showView={showView}
-                  handleCloseView={handleCloseView}
-                  task={selectedTask}
-                />
-              {/* View Task Modal end*/}
-
-
-            
-
-
-<!--                   ))
+                  ))
                 ) : (
                   <tr>
                     <td className="text-center" colSpan={6}>
@@ -458,8 +359,7 @@ export default function TasksList() {
             handleCloseView={handleCloseView}
             task={selectedTask}
           />
-          {/* View Task Modal end*/} -->
-
+          {/* View Task Modal end*/}
         </div>
       </div>
     </Container>
