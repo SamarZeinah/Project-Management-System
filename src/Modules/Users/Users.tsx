@@ -5,8 +5,9 @@ import { USERS_URLS } from "../../Services/Urls";
 import { toast } from "react-toastify";
 import ViewUser from "./ViewUser/ViewUser";
 import { ApiResponseForUser, UsersListResponse } from "../Shared/Interfaces/UsersInterface";
-import ActiveConfirmation from "../Shared/ActiveConfirmation/activeConfirmation";
+import ActiveConfirmation from "../Shared/ActiveConfirmation/ActiveConfirmation"; 
 import Pagination from "../Shared/Pagination";
+import Actions from "../Shared/Actions/Actions";
 
 
 export default function Users() {
@@ -26,6 +27,7 @@ export default function Users() {
  const [totalNumRecords, setTotalNumRecords] = useState(0)
 const [currentPage, setCurrentPage] = useState<number>(1);
 const [pageSize, setPageSize] = useState<number>(5);
+
 
 
 const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
@@ -175,7 +177,7 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                  <td>{user.email}</td>
                  <td>{user.country}</td>
                  <td>
-            <div className="dropdown">
+            {/* <div className="dropdown">
                 <button className="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="fas fa-ellipsis-v"></i>
               </button>
@@ -192,7 +194,9 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                     </i> View </button></li>
                   
                 </ul>
-              </div>
+              </div> */}
+
+              <Actions setShowUser={setShowUser} setUserId={setUserId} user={user} setActivById={setActivById} setIsActivated={setIsActivated} setIsActiveConfirmation={setIsActiveConfirmation} />
             </td>
               </tr>
             ))
