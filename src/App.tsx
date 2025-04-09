@@ -32,21 +32,22 @@ function App() {
         {path:'login',element:<Login/>},
         {path:'register',element:<Register/>},
         {path:'forget-password',element:<ForgetPassword/>},
-        {path:'change-password',element:<ChangePassword/>},
         {path:'reset-password',element:<ResetPassword/>},
         {path:'verify-account',element:<VerifyAccount/>},
-
+        {path:'change-password',element:<ProtectedRoutes  allowedGroups={["Manager","Employee"]} > <ChangePassword/> </ProtectedRoutes>},
+        
       ]
     },
-
+    
     // master layout
-
+    
     {
       path:'dashboard',
-      element:<ProtectedRoutes ><MasterLayout/></ProtectedRoutes>,
+      element:<MasterLayout/>,
       errorElement:<NotFound/>,
       children:[
         // home
+
         {index:true,element:<Dashboard />},
         {path:'users',element:<Users />},
         {path:'projects',element:<ProjectsList />},
@@ -56,6 +57,7 @@ function App() {
         {path:'tasks',element:<TasksList />},
         {path:'add-task',element:<TasksData/>},
         {path:'edit-task/:id',element:<TasksData/>},
+
       ]
       }
 
