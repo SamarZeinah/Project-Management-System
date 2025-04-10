@@ -48,15 +48,15 @@ function App() {
       children:[
         // home
 
-        {index:true,element:<Dashboard />},
-        {path:'users',element:<Users />},
-        {path:'projects',element:<ProjectsList />},
-        {path:'projects-data',element:<ProjectsData/>},
-        {path:'projects-data/new-project',element:<ProjectsData/>},
-      {path:'projects-data/:projectid',element:<ProjectsData/>},
-        {path:'tasks',element:<TasksList />},
-        {path:'add-task',element:<TasksData/>},
-        {path:'edit-task/:id',element:<TasksData/>},
+        {index:true,element:<ProtectedRoutes  allowedGroups={["Manager","Employee"]} > <Dashboard /> </ProtectedRoutes> },
+        {path:'users',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <Users /> </ProtectedRoutes> },
+        {path:'projects',element:<ProtectedRoutes  allowedGroups={["Manager","Employee"]} > <ProjectsList /> </ProtectedRoutes> },
+        {path:'projects-data',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <ProjectsData/> </ProtectedRoutes> },
+        {path:'projects-data/new-project',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <ProjectsData/> </ProtectedRoutes> },
+      {path:'projects-data/:projectid',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <ProjectsData/> </ProtectedRoutes> },
+        {path:'tasks',element:<ProtectedRoutes  allowedGroups={["Manager","Employee"]} > <TasksList /> </ProtectedRoutes> },
+        {path:'add-task',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <TasksData/> </ProtectedRoutes> },
+        {path:'edit-task/:id',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <TasksData/> </ProtectedRoutes> },
 
       ]
       }
