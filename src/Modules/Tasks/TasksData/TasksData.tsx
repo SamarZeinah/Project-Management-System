@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -9,39 +9,43 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   UserSelector} from '../../Shared/Interfaces/UserInterface'
 import { TaskData } from "../../Shared/Interfaces/TaskInterface";
-import{ProjectSelector}  from "../../Shared/Interfaces/ProjectInterface";
+import{ProjectSelector}  from "../../Shared/Interfaces/projectInterface";
 
-// import { useUsers } from "../../../context/UsersContext";
-// import { useProjects } from "../../../context/ProjectsContext";
+import { UsersContext } from "../../../context/UsersContext";
+import { ProjectsContext } from "../../../context/ProjectsContext";
 
 export default function TasksData() {
-  // const { users } = useUsers();
-  // const { projects } = useProjects();
+  const { users } = useContext(UsersContext) ;
+  const { projects } = useContext(ProjectsContext);
+
+  
 
   const navigate = useNavigate();
 
-  const [users, setUsers] = useState<UserSelector[]>([]);
-  const [projects, setProjects] = useState<ProjectSelector[]>([]);
-  let getProjects = async () => {
-    try {
-      let response = await privateAxiosInstance.get(
-        "https://upskilling-egypt.com:3003/api/v1/Project/manager"
-      );
-      setProjects(response.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  let getUsers = async () => {
-    try {
-      let response2 = await privateAxiosInstance.get(
-        "https://upskilling-egypt.com:3003/api/v1/Users/Manager"
-      );
-      setUsers(response2.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const [users, setUsers] = useState<UserSelector[]>([]);
+  // const [projects, setProjects] = useState<ProjectSelector[]>([]);
+  // let getProjects = async () => {
+  //   try {
+  //     let response = await privateAxiosInstance.get(
+  //       "https://upskilling-egypt.com:3003/api/v1/Project/manager"
+  //     );
+  //     setProjects(response.data.data);
+  //     console.log(response.data.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // let getUsers = async () => {
+  //   try {
+  //     let response2 = await privateAxiosInstance.get(
+  //       "https://upskilling-egypt.com:3003/api/v1/Users/Manager"
+  //     );
+  //     setUsers(response2.data.data);
+  //     console.log(response2.data.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const addNewTask = async (values: TaskData) => {
     try {
@@ -116,8 +120,8 @@ export default function TasksData() {
   };
 
   useEffect(() => {
-    getUsers();
-    getProjects();
+    // getUsers();
+    // getProjects();
     if (id) {
       getTask();
     }
@@ -182,7 +186,7 @@ export default function TasksData() {
           <div className="d-flex gap-3">
             <div className="select-div">
               {/* User */}
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Employee</Form.Label>
               <Form.Select
                 aria-label="Default select example"
                 className="data-input"
@@ -207,7 +211,7 @@ export default function TasksData() {
 
             {id ? null : (
               <div className="select-div">
-                <Form.Label>Title</Form.Label>
+                <Form.Label>Project</Form.Label>
                 <Form.Select
                   aria-label="Default select example"
                   className="data-input"
