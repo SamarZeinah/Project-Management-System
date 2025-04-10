@@ -11,6 +11,7 @@ import {
 import ActiveConfirmation from "../Shared/ActiveConfirmation/ActiveConfirmation";
 import Pagination from "../Shared/Pagination";
 import Actions from "../Shared/Actions/Actions";
+import Loading from "../Shared/Loading/Loading";
 import { UsersContext } from "../../../context/UsersContext";
 
 export default function Users() {
@@ -125,6 +126,39 @@ export default function Users() {
         </div>
       </div>
 
+    
+
+      <div className="table-responsive">
+      <Table striped bordered hover >
+        <thead>
+          <tr>
+            <th className="highlight-row text-white p-3">User Name</th>
+            <th className="highlight-row text-white p-3">Statues</th>
+            <th className="highlight-row text-white p-3">Phone Number</th>
+            <th className="highlight-row text-white p-3">Email </th>
+            <th className="highlight-row text-white p-3">Country</th>
+            <th className="highlight-row text-white p-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {loading ? (
+            <tr>
+                          <td className="text-center" colSpan={5}>
+                          < Loading/>
+                          </td>
+                        </tr>
+          ) : allUsers.data.length > 0 ? (
+            allUsers.data.map((user) => (
+              <tr key={user.id}>
+                 <td>{user.userName}</td>
+                 <td>{user.isActivated==true?<button className="activ-btn btn rounded-5">Active</button>:<button className="not-activ-btn btn rounded-5">Not Active</button>} </td>
+                 <td>{user.phoneNumber}</td> 
+                 <td>{user.email}</td>
+                 <td>{user.country}</td>
+                 <td>
+            {/* <div className="dropdown">
+
+
       <div className="table-container">
         <div className="search-container d-flex flex-column flex-md-row">
           <input
@@ -148,45 +182,46 @@ export default function Users() {
           </button>
         </div>
 
-        <div className="table-responsive">
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th className="highlight-row text-white p-3">User Name</th>
-                <th className="highlight-row text-white p-3">Statues</th>
-                <th className="highlight-row text-white p-3">Phone Number</th>
-                <th className="highlight-row text-white p-3">Email </th>
-                <th className="highlight-row text-white p-3">Country</th>
-                <th className="highlight-row text-white p-3">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loading ? (
-                <tr>
-                  <td className="text-center" colSpan={5}>
-                    <span>Loading...</span>
-                  </td>
-                </tr>
-              ) : allUsers.data.length > 0 ? (
-                allUsers.data.map((user) => (
-                  <tr key={user.id}>
-                    <td>{user.userName}</td>
-                    <td>
-                      {user.isActivated == true ? (
-                        <button className="activ-btn btn rounded-5">
-                          Active
-                        </button>
-                      ) : (
-                        <button className="not-activ-btn btn rounded-5">
-                          Not Active
-                        </button>
-                      )}{" "}
-                    </td>
-                    <td>{user.phoneNumber}</td>
-                    <td>{user.email}</td>
-                    <td>{user.country}</td>
-                    <td>
-                      {/* <div className="dropdown">
+//         <div className="table-responsive">
+//           <Table striped bordered hover>
+//             <thead>
+//               <tr>
+//                 <th className="highlight-row text-white p-3">User Name</th>
+//                 <th className="highlight-row text-white p-3">Statues</th>
+//                 <th className="highlight-row text-white p-3">Phone Number</th>
+//                 <th className="highlight-row text-white p-3">Email </th>
+//                 <th className="highlight-row text-white p-3">Country</th>
+//                 <th className="highlight-row text-white p-3">Action</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {loading ? (
+//                 <tr>
+//                   <td className="text-center" colSpan={5}>
+//                     <span>Loading...</span>
+//                   </td>
+//                 </tr>
+//               ) : allUsers.data.length > 0 ? (
+//                 allUsers.data.map((user) => (
+//                   <tr key={user.id}>
+//                     <td>{user.userName}</td>
+//                     <td>
+//                       {user.isActivated == true ? (
+//                         <button className="activ-btn btn rounded-5">
+//                           Active
+//                         </button>
+//                       ) : (
+//                         <button className="not-activ-btn btn rounded-5">
+//                           Not Active
+//                         </button>
+//                       )}{" "}
+//                     </td>
+//                     <td>{user.phoneNumber}</td>
+//                     <td>{user.email}</td>
+//                     <td>{user.country}</td>
+//                     <td>
+//                       {/* <div className="dropdown">
+
                 <button className="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="fas fa-ellipsis-v"></i>
               </button>

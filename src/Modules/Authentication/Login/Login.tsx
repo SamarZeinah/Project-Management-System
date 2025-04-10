@@ -32,7 +32,6 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
         const response = await publicAxiosInstance.post(USERS_URLS.LOGIN, data);
         localStorage.setItem("token", response?.data?.data?.token);
         
-
         navigate("/dashboard");
 
         
@@ -43,9 +42,12 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
       await getCurrentUser();
       navigate('/dashboard')
       } catch (error) {
+        console.log(error);
+        
         if (error instanceof Error) {
-        toast.error(error.message||"An error occurred");
-        } else {
+        toast.error(error.response.data.message||"An error occurred");
+        } 
+        else {
           toast.error("An unexpected error occurred.");
         }
 
