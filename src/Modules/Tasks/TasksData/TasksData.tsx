@@ -22,30 +22,7 @@ export default function TasksData() {
 
   const navigate = useNavigate();
 
-  // const [users, setUsers] = useState<UserSelector[]>([]);
-  // const [projects, setProjects] = useState<ProjectSelector[]>([]);
-  // let getProjects = async () => {
-  //   try {
-  //     let response = await privateAxiosInstance.get(
-  //       "https://upskilling-egypt.com:3003/api/v1/Project/manager"
-  //     );
-  //     setProjects(response.data.data);
-  //     console.log(response.data.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // let getUsers = async () => {
-  //   try {
-  //     let response2 = await privateAxiosInstance.get(
-  //       "https://upskilling-egypt.com:3003/api/v1/Users/Manager"
-  //     );
-  //     setUsers(response2.data.data);
-  //     console.log(response2.data.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+
 
   const addNewTask = async (values: TaskData) => {
     try {
@@ -107,7 +84,7 @@ export default function TasksData() {
   let getTask = async () => {
     try {
       let response = await privateAxiosInstance.get(
-        `https://upskilling-egypt.com:3003/api/v1/Task/${id}`
+        TASKS_URLS.UPDATE_TASK(id)
       );
 
       setValue("title", response?.data?.title);
@@ -120,19 +97,17 @@ export default function TasksData() {
   };
 
   useEffect(() => {
-    // getUsers();
-    // getProjects();
     if (id) {
       getTask();
     }
   }, [id]);
 
   return (
-    <div>
+    <div className="add-task">
       <div className="title-task d-flex justify-content-between align-items-center ">
         <div className="left-div">
           <Link to={"/dashboard/tasks"}>
-            {" "}
+            
             <i className="fa-solid fa-arrow-left"></i> View All Tasks
           </Link>
           <h1>{id ? "Edit" : "Add a New"}Task</h1>
@@ -183,7 +158,7 @@ export default function TasksData() {
               <p className="text-error mt-2">{errors?.description?.message}</p>
             )}
           </Form.Group>
-          <div className="d-flex gap-3">
+          <div className="d-flex flex-column flex-md-row gap-3">
             <div className="select-div">
               {/* User */}
               <Form.Label>Employee</Form.Label>
@@ -237,7 +212,7 @@ export default function TasksData() {
           </div>
         </Row>
 
-        <div className="w-100 buttons-div">
+        <div className="w-100 buttons-div d-flex flex-column flex-sm-row gap-4 gap-sm-0">
           <Button
             disabled={isSubmitting}
             className="cancel-btn px-4 rounded-pill"
@@ -250,7 +225,7 @@ export default function TasksData() {
           </Button>
           <Button
             disabled={isSubmitting}
-            className="save-btn px-4 rounded-pill"
+            className="save-btn px-4 rounded-pill "
             type="submit"
           >
             {isSubmitting ? (

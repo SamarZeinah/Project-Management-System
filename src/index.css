@@ -468,8 +468,8 @@ color: rgba(14, 56, 47, 1);
         border-radius: 50%; 
     }
     
-      /* END USER STYLE */
-
+    /* END USER STYLE */
+    
       /* pagination */
 
 /*       .pagination-container {
@@ -487,13 +487,14 @@ color: rgba(14, 56, 47, 1);
         
 
 
-
-/* add & edit tasks form */
-.title-task {
-    height: 4rem;
-    color: #0E382F;
-    padding: 3rem;
-    background-color: white;
+ 
+ /* add & edit tasks form */
+ .title-task {
+   height: 4rem;
+   color: #0E382F;
+   padding: 3rem;
+   background-color: white;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     a{
         text-decoration: none;
@@ -505,9 +506,12 @@ color: rgba(14, 56, 47, 1);
         font-weight: 600;
         font-size: 24px;
         margin-top: 0.5rem;
-    }
+      }
 }
-
+.add-task{
+  background-color:   rgba(245, 245, 245, 1) !important;
+  min-height: 100vh;
+}
 .task-form  {
    color:  #4F4F4F;
     width: 70%;
@@ -518,6 +522,7 @@ color: rgba(14, 56, 47, 1);
     font-weight: 400;
     font-size: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: start;
 
     input::placeholder {
         color: #C1C1C1;
