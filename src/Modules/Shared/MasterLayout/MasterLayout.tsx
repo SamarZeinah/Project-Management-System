@@ -9,7 +9,7 @@ import Navbar from "../Navbar/Navbare";
 export default function MasterLayout() {
 
   const {pathname}=useLocation()
-  console.log(pathname)
+  // console.log(pathname)
   return<>
   
 <Navbar />

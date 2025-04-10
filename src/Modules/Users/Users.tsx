@@ -8,6 +8,7 @@ import { ApiResponseForUser, UsersListResponse } from "../Shared/Interfaces/User
 import ActiveConfirmation from "../Shared/ActiveConfirmation/ActiveConfirmation"; 
 import Pagination from "../Shared/Pagination";
 import Actions from "../Shared/Actions/Actions";
+import Loading from "../Shared/Loading/Loading";
 
 
 export default function Users() {
@@ -164,10 +165,10 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         <tbody>
           {loading ? (
             <tr>
-              <td className="text-center" colSpan={5}>
-                <span>Loading...</span>
-              </td>
-            </tr>
+                          <td className="text-center" colSpan={5}>
+                          < Loading/>
+                          </td>
+                        </tr>
           ) : allUsers.data.length > 0 ? (
             allUsers.data.map((user) => (
               <tr key={user.id}>

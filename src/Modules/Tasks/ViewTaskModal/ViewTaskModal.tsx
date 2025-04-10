@@ -16,9 +16,6 @@ import { IViewTaskModalProps } from "../../Shared/Interfaces/ModalsInterface.ts"
       <Modal.Body>
           <Row className="my-4 ">
             <Col>
- 
-
-              
       
                 <div><p className="d-inline text-muted pt-2">Title: </p><h6 className="d-inline">{task?.title}</h6> </div>
                 <div><p className="d-inline text-muted pt-2">Status: </p><h6 className="d-inline">{task?.status}</h6> </div>

@@ -3,6 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 import { imgURL, privateAxiosInstance } from "../../../Services/Axiosinstanc";
 import { USERS_URLS } from "../../../Services/Urls";
 import avatarImag from "../../../assets/profile.jpg"
+import Loading from "../../Shared/Loading/Loading";
 
 
 
@@ -43,7 +44,7 @@ export default function ViewUser({handelCloseModal,userId}) {
           <i className="fa fa-xmark text-danger fs-3"  onClick={handelCloseModal} ></i>
 
         </Modal.Header>
-        {loading?"Loading....": <Modal.Body>
+        {loading?< Loading/>: <Modal.Body>
           <div className="content text-center ">
           <div> <img  className='text-center  user-image'  src={userById.imagePath?`${imgURL}${userById.imagePath}`:avatarImag} alt="User Image" />
               <div className="text-start mt-3 modal-detail px-3">

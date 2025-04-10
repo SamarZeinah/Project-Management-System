@@ -1,4 +1,5 @@
 import { Modal } from "react-bootstrap";
+import Loading from "../Loading/Loading";
 
 
 export default function ActiveConfirmation({handelCloseconfirm,activeUser,loading,isActivated}) {
@@ -15,7 +16,7 @@ export default function ActiveConfirmation({handelCloseconfirm,activeUser,loadin
           <i className="fa fa-xmark text-danger fs-3"  onClick={handelCloseconfirm} ></i>
 
         </Modal.Header>
-        {loading?"Loading....": <Modal.Body>
+        {loading?< Loading/>: <Modal.Body>
           <div className="content text-center">
           <i className="fa-solid fa-ban text-danger fs-1"></i>
           <p className="my-3">Are you sure you want to  {isActivated==true?"Block":"Unblock"} </p>

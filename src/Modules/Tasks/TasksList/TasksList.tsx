@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { ITask } from "../../Shared/Interfaces/TaskInterface.ts";
 import ViewTaskModal from "../ViewTaskModal/ViewTaskModal.tsx";
 import Pagination from "../../Shared/Pagination/Pagination.tsx";
+import Loading from "../../Shared/Loading/Loading.tsx";
 
 export default function TasksList() {
   const navigate = useNavigate();
@@ -260,11 +261,12 @@ export default function TasksList() {
               </thead>
               <tbody>
                 {loading ? (
-                  <tr>
-                    <td className="text-center" colSpan={6}>
-                      <span>Loading...</span>
-                    </td>
-                  </tr>
+                   <tr>
+                                 <td className="text-center" colSpan={5}>
+                                 < Loading/>
+                                 </td>
+                               </tr>
+                 
                 ) : tasksData.length > 0 ? (
                   tasksData.map((task: ITask) => (
                     <tr key={task.id}>
