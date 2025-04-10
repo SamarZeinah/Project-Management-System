@@ -11,6 +11,7 @@ import ViewProject from './ViewProject';
 import { AuthContext } from '../../../context/AuthContext';
 import Pagination from '../../Shared/Pagination';
 import Actions from '../../Shared/Actions/Actions';
+import Loading from '../../Shared/Loading/Loading';
 
 
 const ProjectsList = () => {
@@ -38,17 +39,23 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
   setPageSize(Number(e.target.value));
   getProjects(pageSize,1)
 };
+ 
 
 
- 
-  
- 
-;
 
   // Fetch projects
   const getProjects = async (pageSize: number, pageNumber: number,title:string) => {
+    // handle API
+    let cleanApi =''
+
+   if(currentUser.group.name==="Manager"){
+     cleanApi =PROJECTS_URLS.GET_ALL_PROJECTS
+    }else{
+      cleanApi =PROJECTS_URLS.GET_PROJECTS_EMPLOYEE
+    }
     try {
-      const response = await privateAxiosInstance.get(PROJECTS_URLS.GET_ALL_PROJECTS, {
+      
+      const response = await privateAxiosInstance.get( cleanApi, {
         params: { pageSize, pageNumber,title },
       });
   
@@ -140,7 +147,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
             {loading ? (
               <tr>
                 <td className="text-center" colSpan={5}>
-                  <span>Loading...</span>
+                < Loading/>
                 </td>
               </tr>
             ) : ProjectData.data.length > 0 ? (
@@ -151,25 +158,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
                   <td>{project.task ? project.task.length : 0}</td> 
                   <td>{new Date(project.creationDate).toLocaleDateString()}</td>
                 {currentUser.group.name==="Manager"?  <td>
-            {/* <div className="dropdown">
-                <button className="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i className="fas fa-ellipsis-v"></i>
-              </button>
-              <ul className="dropdown-menu">
-                  <li><button className="dropdown-item" type="button"onClick={()=>{setShowProject(true);setShowProjectId(project.id);}}>
-                    <i className="fa-solid fa-eye text-success"></i> View Project</button></li>
-                
-                    <li>
-                      <button className="dropdown-item" type="button" onClick={()=>{setShowDeleteConfirmation(true);setProjectDelete(project.id);}}> 
-                    <i className="fa-solid fa-trash text-danger"></i> Delete Project </button>
-                    </li>
-                  
-                  <li>
-                    <button className="dropdown-item " type="button" onClick={() => navigate(`/dashboard/projects-data/:${project.id}`)} >
-                    <i className="fa-solid fa-pen-to-square text-warning"></i> Edit Project</button>
-                    </li>
-                </ul>
-              </div> */}
+            
               <Actions navigate={navigate} setShowDeleteConfirmation={setShowDeleteConfirmation} setProjectDelete={setProjectDelete} setShowProjectId={setShowProjectId} project={project} setShowProject={setShowProject}/>
             </td>:""}
                 </tr>
@@ -211,9 +200,6 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
            arrayOfPages={arrayOfPages}
            pageSize={pageSize}
          />
-   
-
-      
 
         </> 
   );

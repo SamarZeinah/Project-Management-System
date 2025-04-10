@@ -809,7 +809,7 @@ padding-bottom:6px
   background-color: rgba(49, 89, 81, 0.9);
   color: white;
   height:65vh !important;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 

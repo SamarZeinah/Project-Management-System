@@ -5,6 +5,7 @@ import { PROJECTS_URLS } from '../../../Services/Urls';
 import { toast } from 'react-toastify';
 import profile from '../../../assets/profile.jpg';
 import { Project, ViewProjectProps } from '../../Shared/Interfaces/projectInterface';
+import Loading from '../../Shared/Loading/Loading';
 
 
 const ViewProject: React.FC<ViewProjectProps> = ({ show, handleClose, showProjectId }) => {
@@ -38,7 +39,7 @@ const ViewProject: React.FC<ViewProjectProps> = ({ show, handleClose, showProjec
       </Modal.Header>
       <Modal.Body className="text-center">
         {loading ? (
-          <p>Loading...</p>
+          <p>< Loading/></p>
         ) : projectDataById ? (
           <div className="project-details">
             <div className="manager-info">
