@@ -38,10 +38,7 @@ const ChangePassword = () => {
     console.log("submit");
 
     try {
-      const { data } = await privateAxiosInstance.post(
-        USERS_URLS.UPDATE_USER_PASSWORD,
-        values
-      );
+      const { data } = await privateAxiosInstance.put(USERS_URLS.UPDATE_USER_PASSWORD,values);
       toast.success(data?.message);
       navigate("/login");
     } catch (error) {
