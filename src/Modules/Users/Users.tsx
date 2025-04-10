@@ -12,8 +12,7 @@ import ActiveConfirmation from "../Shared/ActiveConfirmation/ActiveConfirmation"
 import Pagination from "../Shared/Pagination";
 import Actions from "../Shared/Actions/Actions";
 import Loading from "../Shared/Loading/Loading";
-import { UsersContext } from "../../../context/UsersContext";
-
+import { UsersContext } from "../../context/UsersContext"; 
 export default function Users() {
   const [loading, setLoading] = useState(true);
   const [allUsers, setAllUsers] = useState<UsersListResponse[]>([]);
@@ -108,8 +107,9 @@ export default function Users() {
   };
 
   // default users data before filtering or changing page
+   const { users } = useContext(UsersContext);
   useEffect(() => {
-    const { users } = useContext(UsersContext);
+   
     setAllUsers(users);
   }, []);
 
@@ -127,8 +127,29 @@ export default function Users() {
       </div>
 
     
-
+      <div className="table-container">
       <div className="table-responsive">
+      <div className="search-container d-flex flex-column flex-md-row">
+          <input
+            value={filterValue}
+            onChange={handleInputChange}
+            placeholder={`Enter ${filterType}`}
+          />
+
+          <button className="search-container px-2">
+            <i className="fa fa-filter px-2"></i>
+            <select
+              className="btn"
+              value={filterType}
+              onChange={handleFilterTypeChange}
+            >
+              <i className="fa fa-filter px-2"></i>
+              <option value="userName">User Name</option>
+              <option value="email">Email</option>
+              <option value="country">country</option>
+            </select>
+          </button>
+        </div>
       <Table striped bordered hover >
         <thead>
           <tr>
@@ -156,90 +177,7 @@ export default function Users() {
                  <td>{user.email}</td>
                  <td>{user.country}</td>
                  <td>
-            {/* <div className="dropdown">
-
-
-      <div className="table-container">
-        <div className="search-container d-flex flex-column flex-md-row">
-          <input
-            value={filterValue}
-            onChange={handleInputChange}
-            placeholder={`Enter ${filterType}`}
-          />
-
-          <button className="search-container px-2">
-            <i className="fa fa-filter px-2"></i>
-            <select
-              className="btn"
-              value={filterType}
-              onChange={handleFilterTypeChange}
-            >
-              <i className="fa fa-filter px-2"></i>
-              <option value="userName">User Name</option>
-              <option value="email">Email</option>
-              <option value="country">country</option>
-            </select>
-          </button>
-        </div>
-
-//         <div className="table-responsive">
-//           <Table striped bordered hover>
-//             <thead>
-//               <tr>
-//                 <th className="highlight-row text-white p-3">User Name</th>
-//                 <th className="highlight-row text-white p-3">Statues</th>
-//                 <th className="highlight-row text-white p-3">Phone Number</th>
-//                 <th className="highlight-row text-white p-3">Email </th>
-//                 <th className="highlight-row text-white p-3">Country</th>
-//                 <th className="highlight-row text-white p-3">Action</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {loading ? (
-//                 <tr>
-//                   <td className="text-center" colSpan={5}>
-//                     <span>Loading...</span>
-//                   </td>
-//                 </tr>
-//               ) : allUsers.data.length > 0 ? (
-//                 allUsers.data.map((user) => (
-//                   <tr key={user.id}>
-//                     <td>{user.userName}</td>
-//                     <td>
-//                       {user.isActivated == true ? (
-//                         <button className="activ-btn btn rounded-5">
-//                           Active
-//                         </button>
-//                       ) : (
-//                         <button className="not-activ-btn btn rounded-5">
-//                           Not Active
-//                         </button>
-//                       )}{" "}
-//                     </td>
-//                     <td>{user.phoneNumber}</td>
-//                     <td>{user.email}</td>
-//                     <td>{user.country}</td>
-//                     <td>
-//                       {/* <div className="dropdown">
-
-                <button className="btn dropdown border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i className="fas fa-ellipsis-v"></i>
-              </button>
-              <ul className="dropdown-menu">
-
-              <li>
-                      <button className="dropdown-item" type="button" onClick={()=>{setIsActiveConfirmation(true),setActivById(user.id),setIsActivated(user.isActivated)}}> 
-                      <i className="fa-solid fa-ban text-danger me-2"></i>{user.isActivated==true?"Block":"Unblock"} </button>
-                    </li>
-
-                  <li><button className="dropdown-item" type="button"
-                  onClick={()=>{setShowUser(true);setUserId(user.id);}}>
-                    <i className="fa-solid fa-eye text-success me-2">
-                    </i> View </button></li>
-                  
-                </ul>
-              </div> */}
-
+          
                       <Actions
                         setShowUser={setShowUser}
                         setUserId={setUserId}
@@ -261,7 +199,8 @@ export default function Users() {
             </tbody>
           </Table>
         </div>
-      </div>
+        </div>
+     
       {showUser && (
         <ViewUser userId={userId} handelCloseModal={handelCloseModal} />
       )}

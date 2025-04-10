@@ -39,11 +39,23 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
   setPageSize(Number(e.target.value));
   getProjects(pageSize,1)
 };
+ 
+
+
 
   // Fetch projects
   const getProjects = async (pageSize: number, pageNumber: number,title:string) => {
+    // handle API
+    let cleanApi =''
+
+   if(currentUser.group.name==="Manager"){
+     cleanApi =PROJECTS_URLS.GET_ALL_PROJECTS
+    }else{
+      cleanApi =PROJECTS_URLS.GET_PROJECTS_EMPLOYEE
+    }
     try {
-      const response = await privateAxiosInstance.get(PROJECTS_URLS.GET_ALL_PROJECTS, {
+      
+      const response = await privateAxiosInstance.get( cleanApi, {
         params: { pageSize, pageNumber,title },
       });
   

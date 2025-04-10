@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { ITask } from "../../Shared/Interfaces/TaskInterface.ts";
 import ViewTaskModal from "../ViewTaskModal/ViewTaskModal.tsx";
 import Pagination from "../../Shared/Pagination/Pagination.tsx";
+import Loading from "../../Shared/Loading/Loading.tsx";
 
 
 export default function ManagerTasks() {
@@ -210,7 +211,7 @@ export default function ManagerTasks() {
                     {loading ? (
                       <tr>
                         <td className="text-center" colSpan={6}>
-                          <span>Loading...</span>
+                        < Loading/>
                         </td>
                       </tr>
                     ) : tasksData.length > 0 ? (
