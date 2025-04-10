@@ -58,3 +58,9 @@ export  interface ProjectManager {
     handleClose:()=>void,
     showProjectId:number
   }
+
+
+  export interface ProjectSelector {
+    id: number;
+    title: string;
+  }
