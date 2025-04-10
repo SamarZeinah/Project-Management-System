@@ -801,3 +801,33 @@ padding-bottom:6px
   }
 }
 
+
+
+/* Employee tasks start */
+
+.task-bg {
+  background-color: rgba(49, 89, 81, 0.9);
+  color: white;
+  height:65vh !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.task-title{
+  background-color:var(--main-color);
+  width: 90% !important;
+}
+
+/* For larger screens (above 992px) */
+@media (min-width: 992px) {
+  .mobile-accordion {
+    display: none;
+  }
+  .desktop-tasks {
+    display: block;
+  }
+}
+
+
+
+/* Employee tasks end */
