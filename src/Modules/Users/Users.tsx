@@ -11,7 +11,7 @@ import {
 import ActiveConfirmation from "../Shared/ActiveConfirmation/ActiveConfirmation";
 import Pagination from "../Shared/Pagination";
 import Actions from "../Shared/Actions/Actions";
-import { UsersContext } from "../../../context/UsersContext";
+import { UsersContext } from "../../context/UsersContext";
 
 export default function Users() {
   const [loading, setLoading] = useState(true);
