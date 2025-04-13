@@ -46,8 +46,7 @@ function App() {
       element:<MasterLayout/>,
       errorElement:<NotFound/>,
       children:[
-        // home
-
+  
         {index:true,element:<ProtectedRoutes  allowedGroups={["Manager","Employee"]} > <Dashboard /> </ProtectedRoutes> },
         {path:'users',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <Users /> </ProtectedRoutes> },
         {path:'projects',element:<ProtectedRoutes  allowedGroups={["Manager","Employee"]} > <ProjectsList /> </ProtectedRoutes> },
@@ -56,7 +55,7 @@ function App() {
       {path:'projects-data/:projectid',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <ProjectsData/> </ProtectedRoutes> },
         {path:'tasks',element:<ProtectedRoutes  allowedGroups={["Manager","Employee"]} > <TasksList /> </ProtectedRoutes> },
         {path:'add-task',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <TasksData/> </ProtectedRoutes> },
-        {path:'edit-task/:id',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <TasksData/> </ProtectedRoutes> },
+        {path:'edit-task/:id',element:<ProtectedRoutes  allowedGroups={["Manager"]} > <TasksData/> </ProtectedRoutes> },
 
       ]
       }

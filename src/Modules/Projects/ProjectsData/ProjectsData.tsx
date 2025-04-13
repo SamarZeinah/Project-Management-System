@@ -7,7 +7,6 @@ import { DESCRIPTION_VALIDATION, TITLE_VALIDATION } from '../../../Services/Vali
 import { privateAxiosInstance } from '../../../Services/Axiosinstanc';
 import { PROJECTS_URLS } from '../../../Services/Urls';
 import { toast } from 'react-toastify';
-// import { PaginatedProjectsResponse ,TProjectData} from '../../Shared/Interfaces/projectInterface';
 import { useEffect, useState } from 'react';
 import { PaginatedProjectsResponse , TProjectData } from '../../Shared/Interfaces/projectInterface';
 
@@ -137,9 +136,9 @@ const ProjectsData = () => {
       </div>
 
       <div className='table-container py-5'>
-      <Form className='mx-4' onSubmit={handleSubmit(isUpdate?UpdateProject:onsubmit)}>
+      <Form className='mx-4 project-form text-start p-4' onSubmit={handleSubmit(isUpdate?UpdateProject:onsubmit)}>
         <Form.Group>
-          <Form.Label htmlFor="title" className="main-text-color">Title</Form.Label>
+          <Form.Label htmlFor="title" className="main-text-color ">Title</Form.Label>
           <InputGroup className="mb-3 ">
             <Form.Control
               id="title"
@@ -155,7 +154,7 @@ const ProjectsData = () => {
         {errors.title&&<span className="text-danger">{errors.title.message}</span>}
 
         <Form.Group>
-          <Form.Label htmlFor="Description" className="main-text-color">Description</Form.Label>
+          <Form.Label htmlFor="Description" className="main-text-color ">Description</Form.Label>
           <InputGroup className="mb-3 ">
             <Form.Control
               id="Description"

@@ -58,14 +58,14 @@ export default function DoughnutUsers() {
         { title: "inactive", icon: "fa-solid fa-list-check", className: "progress", Index: 1 },
       ];
       return<>
-      <div className="card-info py-3">
+      <div className="card-info py-3 users-details">
         <div className="card-heading ps-3">
           <span>Users</span>
           <p>Lorem ipsum dolor sit amet,consecteture</p>
         </div>
         <Row className="px-3 g-3">
             {userStatuses.map((user)=> <Col >
-            <Card className={`${user.className} p-3 h-100` } >
+            <Card className={`card ${user.className} p-3 h-100` } >
             <span className="rounded-full d-flex justify-content-center align-items-center rounded-circle circle">   <i className={user.icon}></i></span>
     
           <Card.Body className="ps-0 pe-3 pb-0">

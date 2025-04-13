@@ -34,21 +34,22 @@ export default function Users() {
   };
 
   //  handelCloseModal
-  const handelCloseModal = () => {
-    setShowUser(false);
-  };
+  // const handelCloseModal = () => {
+  //   setShowUser(false);
+  // };
   const handelCloseconfirm = () => {
     setIsActiveConfirmation(false);
   };
 
   // Function to fetch the active users from the API
   const activeUser = async () => {
+   if(activById){
     try {
       const response = await privateAxiosInstance.put(
         USERS_URLS.ACTIVE_EMPLOYEE(activById)
       );
       console.log(response);
-      getUsers();
+      getUsers(pageSize,1);
       toast.success("Done Successfully");
       setIsActiveConfirmation(false);
     } catch (error) {
@@ -56,6 +57,7 @@ export default function Users() {
     } finally {
       setLoading(false);
     }
+   }
   };
 
   // Function to fetch the list of users from the API
@@ -77,14 +79,14 @@ export default function Users() {
       console.log("response", response.data);
 
       if (response.data && response.data.data) {
-        setAllUsers(response?.data);
+        setAllUsers(response?.data.data);
         setTotalNumRecords(response?.data?.totalNumberOfRecords);
       } else {
         toast.error("No data found");
       }
       setArrayOfPages(
         Array(response?.data?.totalNumberOfPages)
-          .fill()
+          .fill(0)
           .map((_, index) => index + 1)
       );
 
@@ -107,7 +109,7 @@ export default function Users() {
   };
 
   // default users data before filtering or changing page
-   const { users } = useContext(UsersContext);
+   const { users } = useContext(UsersContext)!;
   useEffect(() => {
    
     setAllUsers(users);
@@ -164,12 +166,12 @@ export default function Users() {
         <tbody>
           {loading ? (
             <tr>
-                          <td className="text-center" colSpan={5}>
+                          <td className="text-center" colSpan={6}>
                           < Loading/>
                           </td>
                         </tr>
-          ) : allUsers.data.length > 0 ? (
-            allUsers.data.map((user) => (
+          ) : allUsers.length > 0 ? (
+            allUsers.map((user) => (
               <tr key={user.id}>
                  <td>{user.userName}</td>
                  <td>{user.isActivated==true?<button className="activ-btn btn rounded-5">Active</button>:<button className="not-activ-btn btn rounded-5">Not Active</button>} </td>
@@ -202,8 +204,14 @@ export default function Users() {
         </div>
      
       {showUser && (
-        <ViewUser userId={userId} handelCloseModal={handelCloseModal} />
+        <ViewUser userId={userId} handleClose={()=> setShowUser(false)}  />
       )}
+
+      {/*  {showProject&&<ViewProject
+      handleClose={()=>setShowProject(false)} 
+      show={showProject}
+      showProjectId={showProjectId}
+      />} */}
       {isActiveConfirmation && (
         <ActiveConfirmation
           isActivated={isActivated}
@@ -217,8 +225,8 @@ export default function Users() {
         totalNumRecords={totalNumRecords}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        getAll={getUsers} // Function signature matches the updated type
-        arrayOfPages={arrayOfPages}
+        getAllTasks={getUsers} // Function signature matches the updated type
+        numOfPagesArray={arrayOfPages}
         pageSize={pageSize}
       />
     </>

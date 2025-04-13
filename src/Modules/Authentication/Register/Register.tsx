@@ -112,30 +112,30 @@ useEffect(()=>{
     {/* user name */}
   <Form.Group as={Col}  xs={12} md={6} controlId="formGridEmail" className="mb-3">
           <Form.Label>User Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter your name" className="input-register input-register-border"  {...register('userName',UserName_Validation)}/>
+          <Form.Control type="text" placeholder="Enter your name" className='input-group-text custom-input text-start '  {...register('userName',UserName_Validation)}/>
           {errors.userName && <p className="text-error mt-2">{errors.userName.message}</p>}
         </Form.Group>
         {/* email */}
         <Form.Group as={Col}  xs={12} md={6} controlId="formGridEmail" className="mb-3">
           <Form.Label>E-mail</Form.Label>
-          <Form.Control type="email" placeholder="Enter your E-mail" className="input-register input-register-border" {...register('email',Email_Validation)} />
+          <Form.Control type="email" placeholder="Enter your E-mail" className='input-group-text custom-input text-start ' {...register('email',Email_Validation)} />
           {errors.email && <p className="text-error mt-2">{errors.email.message}</p>}
         </Form.Group>
         {/* country */}
         <Form.Group as={Col}  xs={12} md={6} controlId="formGridCountry" className="mb-3">
           <Form.Label>Country</Form.Label>
-          <Form.Control type="text" placeholder="Enter your country" className="input-register input-register-border" {...register('country',Country_Validation)} />
+          <Form.Control type="text" placeholder="Enter your country" className='input-group-text custom-input text-start ' {...register('country',Country_Validation)} />
             {errors.country && <p className="text-error mt-2">{errors.country.message}</p>}
         </Form.Group>
      
         {/* phone number */}
         <Form.Group as={Col}  xs={12} md={6} controlId="formGridCountry" className="mb-3">
           <Form.Label>Phone Number</Form.Label>
-          <Form.Control type="tel" placeholder="Enter your phone number" className="input-register input-register-border" {...register('phoneNumber',Phone_Validation)} />
+          <Form.Control type="tel" placeholder="Enter your phone number" className='input-group-text custom-input text-start ' {...register('phoneNumber',Phone_Validation)} />
           {errors.phoneNumber && <p className="text-error mt-2">{errors.phoneNumber.message}</p>}
         </Form.Group>
         {/* password */}
-        <Form.Group as={Col}  xs={12} md={6} controlId="formGridCountry" className="mb-3">
+        <Form.Group as={Col}  xs={12} md={6} controlId="formGridCountry" autoComplete="new-password" className="mb-3 ">
           <Form.Label>Password</Form.Label>
           <div className="input-group">
         <Form.Control

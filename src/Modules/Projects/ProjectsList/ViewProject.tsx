@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { imgURL, privateAxiosInstance } from '../../../Services/Axiosinstanc';
+import { imgURL,privateAxiosInstance } from '../../../Services/Axiosinstanc'; 
 import { PROJECTS_URLS } from '../../../Services/Urls';
 import { toast } from 'react-toastify';
-import profile from '../../../assets/profile.jpg';
+import profile from "../../../assets/profile.jpg"
 import { Project, ViewProjectProps } from '../../Shared/Interfaces/projectInterface';
 import Loading from '../../Shared/Loading/Loading';
 
@@ -41,8 +41,8 @@ const ViewProject: React.FC<ViewProjectProps> = ({ show, handleClose, showProjec
         {loading ? (
           <p>< Loading/></p>
         ) : projectDataById ? (
-          <div className="project-details">
-            <div className="manager-info">
+          <div>
+            <div >
               <img
                 src={projectDataById.manager?.imagePath ? `${imgURL}/${projectDataById.manager?.imagePath}` : profile}
                 alt={projectDataById.manager.userName}
@@ -54,9 +54,8 @@ const ViewProject: React.FC<ViewProjectProps> = ({ show, handleClose, showProjec
               </h5>
             </div>
             
-            <div className="vertical-line"></div>
 
-            <div className="project-info">
+            <div >
               <h5>
                 <span className="text-muted fw-normal">Title:</span>
                 <span className="fw-bold text-dark">{projectDataById.title}</span>
@@ -84,4 +83,4 @@ const ViewProject: React.FC<ViewProjectProps> = ({ show, handleClose, showProjec
   );
 };
 
-export default ViewProject;
+export default ViewProject;

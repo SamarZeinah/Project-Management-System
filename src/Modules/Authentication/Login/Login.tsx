@@ -19,7 +19,7 @@ import { AuthContext } from '../../../context/AuthContext.tsx';
 
 const Login = () => {
 
- const { register, handleSubmit, formState: { errors } } = useForm<ILoginCredentials>();
+ const { register, handleSubmit, formState: { errors ,isSubmitting}} = useForm<ILoginCredentials>();
  const navigate = useNavigate();
 
  const { visible, toggleVisibility }=useTogglePassword()
@@ -69,10 +69,10 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
         }}
       >L</span>ogin</h2>
 
-      <Form className='mt-5' onSubmit={handleSubmit(submit)}>
+      <Form className='mt-5 text-start' onSubmit={handleSubmit(submit)}>
       <Form.Group className="my-5" controlId="formBasicEmail">
         <Form.Label className={`${styles.label}`}>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter your email" {...register("email", {
+        <Form.Control className='input-group-text custom-input text-start ' type="email" placeholder="Enter your email" {...register("email", {
               required: "email is required",
               pattern: {
                 value:
@@ -88,8 +88,8 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
 
       <Form.Group className="mt-5" controlId="formBasicPassword">
         <Form.Label className={`${styles.label}`}>Password</Form.Label>
-        <InputGroup>
-        <Form.Control type={visible.password? "text" : "password"} placeholder="Enter your password"  {...register("password", {
+        <InputGroup >
+        <Form.Control className='input-group-text custom-input text-start' type={visible.password? "text" : "password"} placeholder="Enter your password"  {...register("password", {
               required: "password is required",
               pattern: {
                 value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
@@ -110,16 +110,27 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
 
       <div className="d-flex justify-content-between mt-1 mb-5">
         <Link to="/register" className="btn custom_anchor me-2 text-white fs-6">
-          Rigister Now?
+          Register Now?
         </Link>
         <Link to="/forget-password" className="btn custom_anchor me-2 text-white fs-6">
           Forget Password
         </Link>
       </div>
 
-      <Button variant="primary" type="submit" className={`d-block m-auto ${styles.custom_btn}`}>
-        Login
-      </Button>
+       <Button
+                    disabled={isSubmitting}
+                    className="save-btn w-100 mt-4 p-3 rounded-pill"
+                    type="submit"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <i className="fas fa-spinner fa-spin me-2"></i>
+                        <span>Login...</span>
+                      </>
+                    ) : (
+                      "Login"
+                    )}
+                  </Button>
     </Form>
 
 

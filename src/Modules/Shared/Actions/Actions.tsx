@@ -1,7 +1,35 @@
+// const [activById, setActivById] = useState(null);
 
-
-export default function Actions({setShowProject,setUserId,setShowUser,user,setShowProjectId,setIsActiveConfirmation,setIsActivated,setActivById,project,setProjectDelete,setShowDeleteConfirmation,navigate}) {
-
+// export default function Actions({setShowProject,setUserId,setShowUser,user,setShowProjectId,setIsActiveConfirmation,setIsActivated,setActivById,project,setProjectDelete,setShowDeleteConfirmation,navigate}) {
+    export default function Actions({
+      setShowProject,
+      setUserId,
+      setShowUser,
+      user,
+      setShowProjectId,
+      setIsActiveConfirmation,
+      setIsActivated,
+      setActivById,
+      project,
+      setProjectDelete,
+      setShowDeleteConfirmation,
+      navigate,
+      setSelectedProjectTitle,
+    }: {
+      setShowProject?: any;
+      setUserId?: any;
+      setShowUser?: any;
+      user?: any;
+      setShowProjectId?: any;
+      setIsActiveConfirmation?: any;
+      setIsActivated?: any;
+      setActivById?: any;
+      project?: any;
+      setProjectDelete?: any;
+      setShowDeleteConfirmation?: any;
+      navigate?: any;
+      setSelectedProjectTitle?:any;
+    }) {
     
   return (
     <>
@@ -14,8 +42,8 @@ export default function Actions({setShowProject,setUserId,setShowUser,user,setSh
                     <i className="fa-solid fa-eye text-success"></i> View Project</button></li>
                 
                     <li>
-                      <button className="dropdown-item" type="button" onClick={()=>{setShowDeleteConfirmation(true);setProjectDelete(project.id);}}> 
-                    <i className="fa-solid fa-trash text-danger"></i> Delete Project </button>
+                      <button className="dropdown-item" type="button" onClick={()=>{setShowDeleteConfirmation(true);setProjectDelete(project.id);setSelectedProjectTitle(project.title)}}> 
+                    <i className="fa-solid fa-trash text-danger"></i> Delete Project  </button>
                     </li>
                   
                   <li>

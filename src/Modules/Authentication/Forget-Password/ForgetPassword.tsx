@@ -51,7 +51,16 @@ const ForgetPassword = () => {
         />
          {errors.email&&<span className='text-danger'>{errors.email.message}</span>}
 
-        <Button disabled={isSubmitting} type="submit" className=" border-0 btn-style w-100 mt-5 rounded-5 p-3 text-white fs-4">{isSubmitting?"Loading...":"Verify"} </Button>
+        <Button disabled={isSubmitting} type="submit" className=" border-0 btn-style w-100 mt-5 rounded-5 p-3 text-white fs-4">
+         {isSubmitting ? (
+                <>
+                  <i className="fas fa-spinner fa-spin me-2"></i>
+                  <span>Saving...</span>
+                </>
+              ) : (
+                "Save"
+              )}
+          </Button>
       </form>
     </Container>
     
