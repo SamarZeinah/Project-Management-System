@@ -130,11 +130,11 @@ export default function ManagerTasks() {
 
     const getStatusBadge = (status:string) => {
         if (status === "ToDo") {
-        return <span className="text-white rounded-5 px-3 py-1 bg-secondary">{status}</span>;
+        return <span className="todo-bg  px-3 py-1 ">{status}</span>;
         } else if (status === "InProgress") {
-        return <span className="text-white rounded-5 px-3 py-1 bg-warning">{status}</span>;
+        return <span className="inProgress-bg  px-3 py-1 ">{status}</span>;
         } else if (status === "Done") {
-        return <span className="text-white rounded-5 px-3 py-1 bg-success">{status}</span>;
+        return <span className="done-bg px-3 py-1 ">{status}</span>;
         }
         return <span className="text-white rounded-5 px-3 py-1">{status}</span>;
     };

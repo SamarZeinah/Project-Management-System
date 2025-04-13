@@ -1,17 +1,16 @@
-
 import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import { privateAxiosInstance } from '../../../Services/Axiosinstanc';
 import { PROJECTS_URLS } from '../../../Services/Urls';
 import { toast } from 'react-toastify';
 import { useContext, useEffect, useState } from 'react';
-// import { PaginatedProjectsResponse } from '../../Shared/Interfaces/projectInterface';
-import DeletetionConfirmation from '../../Shared/DeletionConfirmation/DeletetionConfirmation';
 import ViewProject from './ViewProject';
 import { AuthContext } from '../../../context/AuthContext';
 import Pagination from '../../Shared/Pagination';
 import Actions from '../../Shared/Actions/Actions';
 import Loading from '../../Shared/Loading/Loading';
+import { PaginatedProjectsResponse } from '../../Shared/Interfaces/projectInterface';
+import DeleteConfirmation from '../../Shared/DeleteConfirmation/DeleteConfirmation';
 
 
 const ProjectsList = () => {
@@ -26,6 +25,8 @@ const ProjectsList = () => {
  const [totalNumRecords, setTotalNumRecords] = useState(0)
 const [currentPage, setCurrentPage] = useState<number>(1);
 const [pageSize, setPageSize] = useState<number>(5);
+const [selectedProjectTitle,setSelectedProjectTitle] = useState('');
+
 console.log("projectDelete",projectDelete);
 const [ProjectData, setProjectData] = useState<PaginatedProjectsResponse>({
   pageNumber: 1,
@@ -37,14 +38,14 @@ const [ProjectData, setProjectData] = useState<PaginatedProjectsResponse>({
 
 const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
   setPageSize(Number(e.target.value));
-  getProjects(pageSize,1)
+  getProjects(pageSize,1,"")
 };
  
 
 
 
   // Fetch projects
-  const getProjects = async (pageSize: number, pageNumber: number,title:string) => {
+  const getProjects = async (pageSize: number, pageNumber: number, title?: string | null,) => {
     // handle API
     let cleanApi =''
 
@@ -76,7 +77,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
       }
   
       // toast.success(response.data.message || 'Fetching Projects Successfully!');
-      setArrayOfPages(Array(response?.data?.totalNumberOfPages).fill().map((_,index)=>index+1));
+      setArrayOfPages(Array(response?.data?.totalNumberOfPages).fill(0).map((_,index)=>index+1));
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'An unexpected error occurred.');
     } finally {
@@ -104,15 +105,14 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
   }, [pageSize]);
 //filter
   const getNameValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
     getProjects(10, 1,e.target.value);
   
   };
 
   return (
     <>
-      <div className="project-list d-flex justify-content-between text-md-start flex-md-row flex-column text-center py-4 px-5">
-        <div className="content">
+      <div className="project-list container-bg d-flex justify-content-between text-md-start flex-md-row flex-column text-center py-4 px-5">
+        <div className="content ">
           <h3 className="main-text-color">Projects</h3>
         </div>
         {currentUser.group.name==="Manager"? <div className="button">
@@ -159,7 +159,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
                   <td>{new Date(project.creationDate).toLocaleDateString()}</td>
                 {currentUser.group.name==="Manager"?  <td>
             
-              <Actions navigate={navigate} setShowDeleteConfirmation={setShowDeleteConfirmation} setProjectDelete={setProjectDelete} setShowProjectId={setShowProjectId} project={project} setShowProject={setShowProject}/>
+              <Actions navigate={navigate} setShowDeleteConfirmation={setShowDeleteConfirmation} setProjectDelete={setProjectDelete} setShowProjectId={setShowProjectId} project={project} setShowProject={setShowProject} setSelectedProjectTitle={setSelectedProjectTitle}/>
             </td>:""}
                 </tr>
               ))
@@ -177,11 +177,12 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
         
       </div>
       {/* DeletetionConfirmation */}
-      {showDeleteConfirmation&&<DeletetionConfirmation
-      handleClose={()=>setShowDeleteConfirmation(false)} 
-      show={showDeleteConfirmation}
-      handleDelete={deleteProject}
-      />}
+      <DeleteConfirmation
+                showDelete={showDeleteConfirmation}
+                handleCloseDelete={()=>setShowDeleteConfirmation(false)}
+                deleteFunction={deleteProject}
+                deletedItem={"Task"}
+                name={selectedProjectTitle} />
        {/* View Project */}
        {showProject&&<ViewProject
       handleClose={()=>setShowProject(false)} 
@@ -196,8 +197,8 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
            totalNumRecords={totalNumRecords}
            currentPage={currentPage}
            setCurrentPage={setCurrentPage}
-           getAll={getProjects}// Function signature matches the updated type
-           arrayOfPages={arrayOfPages}
+           getAllTasks={getProjects}// Function signature matches the updated type
+           numOfPagesArray={arrayOfPages}
            pageSize={pageSize}
          />
 
@@ -205,4 +206,4 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
   );
 };
 
-export default ProjectsList;
+export default ProjectsList;

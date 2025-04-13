@@ -37,7 +37,7 @@ export  interface ProjectManager {
  export interface ViewProjectProps {
     show: boolean;
     handleClose: () => void;
-    showProjectId: number;
+    showProjectId: number|null;
   }
   
   
@@ -64,3 +64,13 @@ export  interface ProjectManager {
     id: number;
     title: string;
   }
+
+  export interface ProjectSelectorType {
+    id: number;
+    title: string;
+  }
+  
+  export interface ProjectsContextType {
+    projects: ProjectSelectorType[];
+  }
+  

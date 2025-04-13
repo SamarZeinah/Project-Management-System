@@ -18,7 +18,7 @@ const {currentUser}=useContext(AuthContext)
 
 return  <Navbar expand="lg" className="bg-body-tertiary  ">
 <Container>
-  <Navbar.Brand ><Link to={'/dashboard'}><img src={logoNav} alt="logo" /></Link></Navbar.Brand>
+  <Navbar.Brand ><Link to={'/dashboard'}><img src={logoNav} alt="logo"  /></Link></Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ms-auto">
@@ -32,6 +32,7 @@ return  <Navbar expand="lg" className="bg-body-tertiary  ">
     }
     alt="User"
     width={40}
+    className="profile-img"
   />
 ) : null}
 

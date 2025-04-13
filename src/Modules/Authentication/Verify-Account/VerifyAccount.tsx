@@ -51,10 +51,12 @@ try {
           <Form.Control type="text" placeholder="Enter Verification" className="input-register input-register-border"  {...register('code',Code_Validation)}/>
           {errors.code && <p className="text-error mt-2">{errors.code.message}</p>}
         </Form.Group>
-        <div className="w-75 mx-auto"><Button disabled={isSubmitting} className="save-btn w-100 mt-4 rounded-pill" type="submit">{isSubmitting?<>
+        <div className="w-75 mx-auto"><Button disabled={isSubmitting} className="save-btn w-100 mt-4 rounded-pill" type="submit">
+          {isSubmitting?<>
           <i className="fas fa-spinner fa-spin me-2"></i>
         <span>Saving...</span>
-        </>:"Save"}</Button></div>
+        </>:"Save"}
+        </Button></div>
 </form>
     </div>
   )

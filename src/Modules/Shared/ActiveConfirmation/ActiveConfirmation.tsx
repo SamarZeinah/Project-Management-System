@@ -9,7 +9,7 @@ export default function ActiveConfirmation({handelCloseconfirm,activeUser,loadin
         <div
       className="modal show d-block" >
     
-      <Modal.Dialog>
+      <Modal.Dialog centered>
         <Modal.Header className="d-flex justify-content-between">
           
           <Modal.Title>Confirmation  </Modal.Title>

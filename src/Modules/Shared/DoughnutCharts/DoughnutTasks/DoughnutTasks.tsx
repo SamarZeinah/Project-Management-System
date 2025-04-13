@@ -62,14 +62,14 @@ export default function DoughnutTasks() {
     { title: "Done", icon: "fa-solid fa-check-double", className: "done", Index: 2 },
   ];
   return<>
-  <div className="card-info py-3">
-    <div className="card-heading ps-3">
+  <div className="card-info py-3 tasks-details">
+    <div className="card-heading ps-3 ">
       <span>Tasks</span>
       <p>Lorem ipsum dolor sit amet,consecteture</p>
     </div>
     <Row className="px-3 g-3 ">
       {taskStatuses.map(task=><Col  >
-        <Card className={` ${task.className} p-3 h-100 `  } >
+        <Card className={`card  ${task.className} p-3 h-100  `  } >
         <span className="rounded-full d-flex justify-content-center align-items-center rounded-circle circle">  <i className={task.icon}></i> </span>
 
       <Card.Body className="ps-0 pe-3 pb-0">

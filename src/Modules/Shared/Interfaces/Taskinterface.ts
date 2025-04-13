@@ -30,6 +30,8 @@ export interface ITask {
 
   }
 
+  
+
   export interface ITaskColumProps {
     tasksData: ITask[];
     status: Status;
@@ -38,3 +40,9 @@ export interface ITask {
 }
 
 
+export interface TaskData {
+  title: string;
+  description: string;
+  employeeId: number;
+  projectId: number;
+} 

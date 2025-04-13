@@ -104,8 +104,16 @@ color: white;
 color: white;
     background-color: transparent;
 }
-.register .save-btn{
+ .save-btn{
+    background-color: rgba(239, 155, 40, 1) !important;
+    border: none !important;
+    padding: 20px;
+}
+ .save-btn:hover{
     background-color: rgba(239, 155, 40, 1);
+    border: none;
+    opacity: 0.7;
+
 }
 .register .btn-primary {
     --bs-btn-border-color:transparent
@@ -165,8 +173,6 @@ color: white;
     outline: none !important;
     
 }
-
-
 
   .custom-input::placeholder {
     color: #fff !important; 
@@ -291,55 +297,10 @@ color: rgba(14, 56, 47, 1);
 }
 
 
-/* start project-list */
-/* .project-list{
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08); 
-  }
-  
-  .table-container {
-    margin: 30px ;
-    width: 90%;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-    border:0  ;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-}
-  .table {
-    border: none;
-  
-  } */
-
-  /* @media screen and (max-width:992px){
-   .table{
-      width: 100% !important;  
-    } 
-  }*/
-/*   .table th, .table td {
-    padding: 12px; 
-    border: none;
-  
-  }
-  .table-bordered>:not(caption)>* {
-    border: none;
-  
-  }
-  .highlight-row {
-    background-color: rgba(49, 89, 81, 0.9) !important; 
-  }
-  .search-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-  } */
   
   .search-container input ,.search-container button {
     padding-left: 10px !important;
-    /*width: 250px;
-    */padding: 10px;
+    padding: 10px;
     border: 1px solid #ccc !important;
     border-radius: 50px !important;
     margin:20px;
@@ -356,36 +317,7 @@ color: rgba(14, 56, 47, 1);
     -o-border-radius: 50px !important;
 }
   
-/*   .search-container input:focus{
-    border: 1px solid #ccc;
-    outline:none;
-    transform: scale(1.05);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-  
-  } */
-  
-  /* .search-container i {
-    position: absolute;
-    left: 20px; 
-    color: #888; 
-  } */
-/*   .Link {
-    list-style: none;
-    text-decoration: none; 
-    color: rgba(14, 56, 47, 1);
-    display: flex;
-    align-items: center;
-  }
-  
-  .Link i {
-    margin-right: 8px; 
-    font-size: 16px; 
-  }
-  
-  
-  .Link:hover i {
-    transform: translateX(-5px); 
-  } */
+
   .main-text-color{
     color:rgba(79, 79, 79,1) !important;
   }
@@ -467,26 +399,9 @@ color: rgba(14, 56, 47, 1);
         object-fit: cover;
         border-radius: 50%; 
     }
-    
-      /* END USER STYLE */
-
-      /* pagination */
-
-/*       .pagination-container {
-        width: 100%;
-        max-width: 700px; 
-      }
-      
-      @media (min-width: 992px) {
-        .pagination-container {
-          margin: 0 auto !important;
-        }}
- */
 
 
         
-
-
 
 /* add & edit tasks form */
 .title-task {
@@ -657,16 +572,6 @@ border-left: 3px solid rgba(239, 155, 40, 1);
   position: relative;
 }
 
-/* .search-container input {
-  padding-left: 10px; 
-  width: 250px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 50px;
-  margin:20px;
-  transition: transform 0.3s ease-in-out;
-}
- */
 
 .search-container input:focus{
   border: 1px solid #ccc !important;
@@ -813,6 +718,17 @@ padding-bottom:6px
   overflow-x: hidden;
 }
 
+.task-form .form-control ,.project-form .form-control  ,.task-form select{
+  color:#0E382F !important ;
+  border-radius: 16px !important;
+  margin-bottom: 0.8rem;
+  padding-inline: 1rem;
+  padding-block: 0.8rem;
+  border:solid 0.02rem #C1C1C1 !important;
+  
+}
+
+
 .task-title{
   background-color:var(--main-color);
   width: 90% !important;
@@ -831,3 +747,47 @@ padding-bottom:6px
 
 
 /* Employee tasks end */
+
+/* start tasks */
+.todo-bg{
+  background-color:rgb(200, 195, 228) !important;
+  color:white !important;
+  border-radius:50px !important;
+  
+}
+.inProgress-bg{
+  background-color:rgba(239, 155, 40, 0.64) !important;
+  color:white !important;
+  border-radius:50px !important;
+
+}
+.done-bg{
+  background-color:rgba(0, 146, 71, 1) !important;
+  color:white !important;
+  border-radius:50px !important;
+
+}
+/* End tasks */
+
+tbody td {
+  vertical-align: middle;
+  padding-block: 1rem;
+  
+}
+
+
+.tasks-details .card,
+.users-details .card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.tasks-details .card:hover,
+.users-details .card:hover {
+  transform: scale(1.05);
+}
+
+.profile-img {
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  width:40px
+}

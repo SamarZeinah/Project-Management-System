@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { imgURL, privateAxiosInstance } from "../../../Services/Axiosinstanc";
 import { USERS_URLS } from "../../../Services/Urls";
 import avatarImag from "../../../assets/profile.jpg"
@@ -8,13 +8,13 @@ import Loading from "../../Shared/Loading/Loading";
 
 
 
-export default function ViewUser({handelCloseModal,userId}) {
+export default function ViewUser({handleClose,userId}) {
 
  const[loading,setLoading] =  useState(true)
  const[userById,setUserById] =  useState(true)
 
 
- const getUserById =async(id:Number)=>{
+ const getUserById =async(id:number)=>{
   try {
         const response=  await privateAxiosInstance.get(USERS_URLS.GET_USER(id))
         console.log(response);
@@ -37,11 +37,11 @@ export default function ViewUser({handelCloseModal,userId}) {
    <div
       className="modal show d-block" >
     
-      <Modal.Dialog>
-        <Modal.Header className="d-flex justify-content-between">
+      <Modal.Dialog centered>
+        <Modal.Header className="d-flex justify-content-between" >
           
           <Modal.Title>User Details </Modal.Title>
-          <i className="fa fa-xmark text-danger fs-3"  onClick={handelCloseModal} ></i>
+          <i className="fa fa-xmark text-danger fs-3"  onClick={handleClose} ></i>
 
         </Modal.Header>
         {loading?< Loading/>: <Modal.Body>

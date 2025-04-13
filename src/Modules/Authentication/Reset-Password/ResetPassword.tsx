@@ -16,15 +16,6 @@ const ResetPassword = () => {
 
   let navigate=useNavigate()
   let {state}=useLocation()
-  // const [passwordEye, setPasswordEye] = useState(false)
-    
-    // const handelPasswordClick=()=>{
-    //   setPasswordEye(!passwordEye)
-    // }
-    // const [passwordConfirmEye, setPasswordConfitmEye] = useState(false)
-    // const handelPasswordConfirm=()=>{
-    //   setPasswordConfitmEye(!passwordConfirmEye)
-    // }
 
   let{register,handleSubmit,formState:{errors,isSubmitting},watch,trigger} =useForm<resetData>({defaultValues:{email:state?.email}})
   const password=watch("password")
@@ -91,8 +82,6 @@ const ResetPassword = () => {
         />
          <span onClick={()=>toggleVisibility('password')}
           className="input-group-text custom-input text-white" id="basic-addon1">
-                   {/* {(passwordEye===false)?<i className="fa-solid fa-eye-slash" onClick={handelPasswordClick}>
-                   </i>:<i className="fa-solid fa-eye" onClick={handelPasswordClick}></i>} */}
                     <i className={visible.password ? "fas fa-eye" : "fas fa-eye-slash"}></i>
                    </span>
                    </div>
@@ -124,7 +113,16 @@ const ResetPassword = () => {
         
 
          
-        <Button disabled={isSubmitting} type="submit" className=" border-0 btn-style w-100 mt-5 rounded-5 p-3 text-white fs-4">{isSubmitting?"Saving...":"Save"}</Button>
+        <Button disabled={isSubmitting} type="submit" className=" border-0 btn-style w-100 mt-5 rounded-5 p-3 text-white fs-4">
+        {isSubmitting ? (
+                <>
+                  <i className="fas fa-spinner fa-spin me-2"></i>
+                  <span>Saving...</span>
+                </>
+              ) : (
+                "Save"
+              )}
+          </Button>
 
       </form>
     </Container>

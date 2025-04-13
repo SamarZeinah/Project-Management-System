@@ -20,4 +20,28 @@ export interface UsersFilterInterface {
     phoneNumber: string;
     email: string;
     creationDate: string;
+    country: string;
+  }
+  // export interface UsersById {
+  //   id: number;
+  //   userName: string;
+  //   isActivated: boolean;
+  //   phoneNumber: string;
+  //   email: string;
+  //   creationDate: string;
+  //   country: string;
+  // }
+
+  export interface ViewUserProps {
+    handleClose: () => void;
+    userId: number|null;
+  }
+  
+  export interface UserSelectorType {
+    id: number;
+    userName: string;
+  }
+  
+export  interface UsersContextType {
+    users: UserSelectorType[];
   }

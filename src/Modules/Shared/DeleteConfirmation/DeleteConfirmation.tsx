@@ -11,7 +11,7 @@ import { IDeleteConfirmationProps } from "../Interfaces/ModalsInterface.ts";
   name
 }: IDeleteConfirmationProps) {
   return (
-    <Modal show={showDelete} onHide={handleCloseDelete}>
+    <Modal show={showDelete} onHide={handleCloseDelete} centered>
 
       <Modal.Header closeButton>
       </Modal.Header>
