@@ -325,8 +325,8 @@ export default function TasksData() {
 
   let getTask = async () => {
     try {
-      let response = await privateAxiosInstance.get(TASKS_URLS.UPDATE_TASK(id));
 
+      let response = await privateAxiosInstance.get(TASKS_URLS.UPDATE_TASK(id));
       setValue("title", response?.data?.title);
       setValue("description", response?.data?.description);
       setValue("employeeId", response?.data?.employee?.id);
@@ -343,6 +343,7 @@ export default function TasksData() {
   }, [id]);
 
   return (
+
     <div className="add-task text-start">
      
 <div className='project-list d-flex justify-content-between text-md-start flex-md-row flex-column text-center py-4 px-5'>
@@ -354,6 +355,7 @@ export default function TasksData() {
           <h3 className="main-text-color">
           {id ? "Edit Task" : "Add a New Task"}
        </h3>
+
         </div>
        
       </div>

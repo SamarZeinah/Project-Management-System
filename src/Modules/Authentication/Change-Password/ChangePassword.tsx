@@ -42,6 +42,7 @@ const ChangePassword = () => {
         USERS_URLS.UPDATE_USER_PASSWORD,
         values
       );
+
       toast.success(data?.message);
       navigate("/login");
     } catch (error) {
