@@ -18,8 +18,8 @@ const ProjectsData = () => {
     const isUpdate = ProjectId && ProjectId !== "new-project";
     //End Updating project
  const navigate=useNavigate();
- const [loading, setLoading] = useState(true);
- const [ProjectData, setProjectData] = useState<PaginatedProjectsResponse>({
+ const [_loading, setLoading] = useState(true);
+ const [_ProjectData, setProjectData] = useState<PaginatedProjectsResponse>({
   pageNumber: 1,
   pageSize: 10,
   data: [], 

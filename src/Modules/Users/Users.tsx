@@ -21,7 +21,7 @@ export default function Users() {
   const [filterType, setFilterType] = useState("userName");
   const [filterValue, setFilterValue] = useState("");
   const [isActiveConfirmation, setIsActiveConfirmation] = useState(false);
-  const [activById, setActivById] = useState(null);
+  const [activById, setActivById] = useState<number | null>(null);
   const [isActivated, setIsActivated] = useState(Boolean);
   const [arrayOfPages, setArrayOfPages] = useState<number[]>([]);
   const [totalNumRecords, setTotalNumRecords] = useState(0);

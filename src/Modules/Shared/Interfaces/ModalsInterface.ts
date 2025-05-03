@@ -1,4 +1,4 @@
-import { ITask } from "./../Interfaces/Taskinterface";
+import { ITask } from "./../Interfaces/Taskinterface.ts";
 
   export interface IDeleteConfirmationProps {
   showDelete: boolean;

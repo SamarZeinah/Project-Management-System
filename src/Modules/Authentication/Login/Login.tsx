@@ -12,6 +12,7 @@ import {ILoginCredentials } from '../../Shared/Interfaces/AuthInterface.ts'
 import useTogglePassword from "../../../hooks/useTogglePassword";
 import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthContext.tsx';
+import { AxiosError } from 'axios';
 
 
 
@@ -41,15 +42,17 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
         fillLoginData()
       await getCurrentUser();
       navigate('/dashboard')
-      } catch (error) {
-        console.log(error);
-        
-        if (error instanceof Error) {
-        toast.error(error?.response?.data?.message||"An error occurred");
-        } 
-        else {
-          toast.error("An unexpected error occurred.");
-        }
+     
+} catch (error) {
+  if ((error as AxiosError).response) {
+    const axiosError = error as AxiosError<{ message: string }>;
+    toast.error(axiosError.response?.data?.message || "An error occurred");
+  } else if (error instanceof Error) {
+    toast.error(error.message);
+  } else {
+    toast.error("An unexpected error occurred.");
+  }
+}
 
       }
   }

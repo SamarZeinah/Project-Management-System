@@ -6,6 +6,7 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import { Email_Validation } from "../../../Services/Validation"
 import { forgetData } from "../../Shared/Interfaces/AuthInterface";
+import { AxiosError } from "axios"
 
 
 
@@ -18,19 +19,16 @@ const ForgetPassword = () => {
   
   const onSubmit=async(data:forgetData)=>{
     try {
-      const response =await publicAxiosInstance.post(USERS_URLS.Request_RESET_PASSWORD,data)
+      const response = await publicAxiosInstance.post(USERS_URLS.Request_RESET_PASSWORD, data);
       console.log(response);
-      // console.log(data);
-      
-      
-       toast.success(response.data.message );
-          navigate("/reset-password",{state:{email:data.email}})
+    
+      toast.success(response.data.message);
+      navigate("/reset-password", { state: { email: data.email } });
     } catch (error) {
-      console.log(error);
-      // toast.error(error?.message||"" );
-      toast.error(error?.response?.data.message||"" );
-
-      
+      const axiosError = error as AxiosError<{ message: string }>;
+      console.log(axiosError);
+    
+      toast.error(axiosError?.response?.data?.message || "some thing went wrong");
     }
     
   }
