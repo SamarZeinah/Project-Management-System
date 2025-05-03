@@ -3,7 +3,7 @@ import { Row } from "react-bootstrap";
 import { privateAxiosInstance } from "../../../Services/Axiosinstanc.ts";
 import { TASKS_URLS } from "../../../Services/Urls.ts";
 import TaskColumn from "../TaskColumn/TaskColumn.tsx";
-import { IEmployeeTask, ITask } from "../../Shared/Interfaces/TaskInterface.ts";
+import { IEmployeeTask, ITask } from "../../../Modules/Shared/Interfaces/Taskinterface.ts";
 
 
 

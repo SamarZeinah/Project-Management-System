@@ -1,6 +1,3 @@
-// const [activById, setActivById] = useState(null);
-
-// export default function Actions({setShowProject,setUserId,setShowUser,user,setShowProjectId,setIsActiveConfirmation,setIsActivated,setActivById,project,setProjectDelete,setShowDeleteConfirmation,navigate}) {
     export default function Actions({
       setShowProject,
       setUserId,

@@ -45,7 +45,7 @@ const {getCurrentUser,fillLoginData}=useContext(AuthContext)
         console.log(error);
         
         if (error instanceof Error) {
-        toast.error(error.response.data.message||"An error occurred");
+        toast.error(error?.response?.data?.message||"An error occurred");
         } 
         else {
           toast.error("An unexpected error occurred.");

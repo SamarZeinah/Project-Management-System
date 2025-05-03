@@ -49,7 +49,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     // handle API
     let cleanApi =''
 
-   if(currentUser.group.name==="Manager"){
+   if(currentUser?.group?.name==="Manager"){
      cleanApi =PROJECTS_URLS.GET_ALL_PROJECTS
     }else{
       cleanApi =PROJECTS_URLS.GET_PROJECTS_EMPLOYEE
@@ -115,7 +115,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
         <div className="content ">
           <h3 className="main-text-color">Projects</h3>
         </div>
-        {currentUser.group.name==="Manager"? <div className="button">
+        {currentUser?.group?.name==="Manager"? <div className="button">
           <button className="base-button px-5" onClick={() => navigate('/dashboard/projects-data')}>
             + Add New Project
           </button>
@@ -139,7 +139,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
               <th className="highlight-row text-white p-3">Description</th>
               <th className="highlight-row text-white p-3">Num Tasks</th>
               <th className="highlight-row text-white p-3">Date Created</th>
-              {currentUser.group.name==="Manager"?<th className="highlight-row text-white p-3">Action</th>:""}
+              {currentUser?.group?.name==="Manager"?<th className="highlight-row text-white p-3">Action</th>:""}
               
             </tr>
           </thead>
@@ -157,7 +157,7 @@ const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
                   <td>{project.description}</td>
                   <td>{project.task ? project.task.length : 0}</td> 
                   <td>{new Date(project.creationDate).toLocaleDateString()}</td>
-                {currentUser.group.name==="Manager"?  <td>
+                {currentUser?.group?.name==="Manager"?  <td>
             
               <Actions navigate={navigate} setShowDeleteConfirmation={setShowDeleteConfirmation} setProjectDelete={setProjectDelete} setShowProjectId={setShowProjectId} project={project} setShowProject={setShowProject} setSelectedProjectTitle={setSelectedProjectTitle}/>
             </td>:""}
