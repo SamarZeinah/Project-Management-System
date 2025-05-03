@@ -8,6 +8,7 @@ import { Button, Container } from "react-bootstrap"
 import { useEffect } from "react"
 import { resetData } from "../../Shared/Interfaces/AuthInterface";
 import useTogglePassword from "../../../hooks/useTogglePassword"
+import { AxiosError } from "axios"
 
 
 
@@ -35,10 +36,11 @@ const ResetPassword = () => {
        toast.success(response.data.message||"rrrr" );
           navigate("/login")
     } catch (error) {
-      console.log(error);
-      
-      toast.error(error?.response?.data.message||"An unexpected error eccurred" );
-      }
+      const axiosError = error as AxiosError<{ message: string }>;
+      console.log(axiosError);
+    
+      toast.error(axiosError?.response?.data?.message || "An unexpected error occurred");
+    }
     }
   return (
     <>

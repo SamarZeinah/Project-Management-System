@@ -1,3 +1,5 @@
+import {ITask} from "./Taskinterface"
+
 export interface Task {
   id: number;
   title: string;
@@ -22,7 +24,7 @@ export interface Project {
   creationDate: string;
   modificationDate: string;
   manager: ProjectManager;
-  task: any[];
+  task: ITask[];
 }
 
 export interface ViewProjectProps {
@@ -47,16 +49,6 @@ export interface PaginatedViewProjectsResponse {
   show: boolean;
   handleClose: () => void;
   showProjectId: number;
-}
-
-export interface ProjectSelector {
-  id: number;
-  title: string;
-}
-
-export interface ProjectSelectorType {
-  id: number;
-  title: string;
 }
 
 export interface ProjectsContextType {
