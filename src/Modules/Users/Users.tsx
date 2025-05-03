@@ -22,21 +22,18 @@ export default function Users() {
   const [filterValue, setFilterValue] = useState("");
   const [isActiveConfirmation, setIsActiveConfirmation] = useState(false);
   const [activById, setActivById] = useState(null);
-  const [isActivated, setIsActivated] = useState("");
+  const [isActivated, setIsActivated] = useState(Boolean);
   const [arrayOfPages, setArrayOfPages] = useState<number[]>([]);
   const [totalNumRecords, setTotalNumRecords] = useState(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(5);
 
   const changePageSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setPageSize(Number(e.target.value));
-    getUsers(pageSize, 1);
+    const newSize = Number(e.target.value);
+    setPageSize(newSize);
   };
 
-  //  handelCloseModal
-  // const handelCloseModal = () => {
-  //   setShowUser(false);
-  // };
+ 
   const handelCloseconfirm = () => {
     setIsActiveConfirmation(false);
   };
@@ -110,10 +107,11 @@ export default function Users() {
 
   // default users data before filtering or changing page
    const { users } = useContext(UsersContext)!;
-  useEffect(() => {
-   
-    setAllUsers(users);
-  }, []);
+   useEffect(() => {
+    if (users && users.length) {
+      setAllUsers(users);
+    }
+  }, [users]);
 
   useEffect(() => {
     getUsers(pageSize, 1);
@@ -207,11 +205,7 @@ export default function Users() {
         <ViewUser userId={userId} handleClose={()=> setShowUser(false)}  />
       )}
 
-      {/*  {showProject&&<ViewProject
-      handleClose={()=>setShowProject(false)} 
-      show={showProject}
-      showProjectId={showProjectId}
-      />} */}
+
       {isActiveConfirmation && (
         <ActiveConfirmation
           isActivated={isActivated}

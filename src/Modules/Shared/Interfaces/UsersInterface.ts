@@ -21,17 +21,13 @@ export interface UsersFilterInterface {
     email: string;
     creationDate: string;
     country: string;
-  }
-  // export interface UsersById {
-  //   id: number;
-  //   userName: string;
-  //   isActivated: boolean;
-  //   phoneNumber: string;
-  //   email: string;
-  //   creationDate: string;
-  //   country: string;
-  // }
-
+      imagePath?: string;
+      group: {
+        name: string;
+      };
+    }
+  
+ 
   export interface ViewUserProps {
     handleClose: () => void;
     userId: number|null;
@@ -43,5 +39,10 @@ export interface UsersFilterInterface {
   }
   
 export  interface UsersContextType {
-    users: UserSelectorType[];
+    users: UsersListResponse[];
+  }
+
+  export interface UserSelector {
+    id: number;
+    userName: string;
   }

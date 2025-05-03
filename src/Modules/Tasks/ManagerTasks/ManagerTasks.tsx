@@ -6,7 +6,7 @@ import { TASKS_URLS } from "../../../Services/Urls.ts";
 import DeleteConfirmation from "../../Shared/DeleteConfirmation/DeleteConfirmation.tsx";
 import { toast } from "react-toastify";
 // import Pagination from "../Shared/Pagination/Pagination";
-import { ITask } from "../../Shared/Interfaces/TaskInterface.ts";
+import { ITask } from "../../Shared/Interfaces/Taskinterface.ts";
 import ViewTaskModal from "../ViewTaskModal/ViewTaskModal.tsx";
 import Pagination from "../../Shared/Pagination/Pagination.tsx";
 import Loading from "../../Shared/Loading/Loading.tsx";
@@ -20,7 +20,6 @@ export default function ManagerTasks() {
     const [showDelete,setShowDelete] = useState(false);
     const [showView,setShowView] = useState(false);
     const [taskId, setTaskId] = useState(0);
-    // const [numOfPagesArray, setNumOfPagesArray] = useState([]);
     const [title, setTitle] = useState('');
     const [status, setStatus] = useState('ToDo');
     const [selectedTaskTitle,setSelectedTaskTitle] = useState('');

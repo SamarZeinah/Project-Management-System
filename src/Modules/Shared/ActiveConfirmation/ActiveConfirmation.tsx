@@ -1,9 +1,20 @@
 import { Modal } from "react-bootstrap";
 import Loading from "../Loading/Loading";
 
+interface ActiveConfirmationProps {
+  handelCloseconfirm: () => void;
+  activeUser: () => void;
+  loading: boolean;
+  isActivated: boolean;
+}
 
-export default function ActiveConfirmation({handelCloseconfirm,activeUser,loading,isActivated}) {
-  return (
+export default function ActiveConfirmation({
+  handelCloseconfirm,
+  activeUser,
+  loading,
+  isActivated,
+}: ActiveConfirmationProps) {
+   return (
     <div>
         
         <div
