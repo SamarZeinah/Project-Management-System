@@ -1,4 +1,4 @@
-import { Project } from "../Interfaces/ProjectInterface";
+import { Project } from "../Interfaces/projectInterface";
 import { UsersListResponse } from "../Interfaces/UsersInterface";
 
 export default function Actions({
