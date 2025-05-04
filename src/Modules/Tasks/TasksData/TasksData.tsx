@@ -1,4 +1,4 @@
-import  { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -10,11 +10,15 @@ import { TaskData } from "../../Shared/Interfaces/Taskinterface";
 import { UsersContext } from "../../../context/UsersContext";
 import { ProjectsContext } from "../../../context/ProjectsContext";
 import { UserSelectorType } from "../../Shared/Interfaces/UsersInterface";
-import { Project } from "../../Shared/Interfaces/projectInterface";
+import { Project } from "../../Shared/Interfaces/ProjectInterface";
 
 export default function TasksData() {
-  const { users = [] } = useContext(UsersContext) as { users: UserSelectorType[] };
-  const { projects = [] } = useContext(ProjectsContext) as { projects: Project[] };
+  const { users = [] } = useContext(UsersContext) as {
+    users: UserSelectorType[];
+  };
+  const { projects = [] } = useContext(ProjectsContext) as {
+    projects: Project[];
+  };
 
   const navigate = useNavigate();
 
@@ -77,12 +81,13 @@ export default function TasksData() {
 
   let getTask = async () => {
     try {
-
       if (!id) return;
 
       const taskId = Number(id);
-      
-      let response = await privateAxiosInstance.get(TASKS_URLS.UPDATE_TASK(taskId));
+
+      let response = await privateAxiosInstance.get(
+        TASKS_URLS.UPDATE_TASK(taskId)
+      );
       setValue("title", response?.data?.title);
       setValue("description", response?.data?.description);
       setValue("employeeId", response?.data?.employee?.id);
@@ -99,21 +104,18 @@ export default function TasksData() {
   }, [id]);
 
   return (
-
     <div className="add-task text-start">
-     
-<div className='project-list d-flex justify-content-between text-md-start flex-md-row flex-column text-center py-4 px-5'>
-        <div className='content'>
-        <Link className="Link mb-2" to="/dashboard/tasks">
-        <i className="fas fa-chevron-left"></i>View All Tasks
-        </Link>
+      <div className="project-list d-flex justify-content-between text-md-start flex-md-row flex-column text-center py-4 px-5">
+        <div className="content">
+          <Link className="Link mb-2" to="/dashboard/tasks">
+            <i className="fas fa-chevron-left"></i>View All Tasks
+          </Link>
 
           <h3 className="main-text-color">
-          {id ? "Edit Task" : "Add a New Task"}
-       </h3>
-
+            {id ? "Edit Task" : "Add a New Task"}
+               
+          </h3>
         </div>
-       
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="task-form  ">
         <Row>
@@ -128,9 +130,9 @@ export default function TasksData() {
             <Form.Label>Title</Form.Label>
             <div className="input-group">
               <Form.Control
-               {...register("title", {
-                required: "title is required",
-              })}
+                {...register("title", {
+                  required: "title is required",
+                })}
                 placeholder="Name"
                 className="input-register"
                 type="text"
@@ -152,16 +154,18 @@ export default function TasksData() {
             <Form.Label>Description</Form.Label>
             <div className="input-group">
               <Form.Control
-               {...register("description", {
-                required: "description is required",
-              })}
+                {...register("description", {
+                  required: "description is required",
+                })}
                 type="text"
                 placeholder="Description"
                 className="input-register pb-5"
               />
             </div>
             {errors?.description && (
-              <span className="text-danger">{errors?.description?.message}</span>
+              <span className="text-danger">
+                {errors?.description?.message}
+              </span>
             )}
           </Form.Group>
           <div className="d-flex flex-column flex-md-row gap-3">
@@ -245,6 +249,7 @@ export default function TasksData() {
           </Button>
         </div>
       </form>
-    </div>
-  );
+         
+    </div>
+  );
 }

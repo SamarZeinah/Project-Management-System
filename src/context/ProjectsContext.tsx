@@ -1,10 +1,9 @@
-
 import React, { createContext, useEffect, useState } from "react";
 import { privateAxiosInstance } from "../Services/Axiosinstanc";
 import { PROJECTS_URLS } from "../Services/Urls";
-import { ProjectsContextType  } from "../Modules/Shared/Interfaces/projectInterface";
+import { ProjectsContextType } from "../Modules/Shared/Interfaces/ProjectInterface";
 
-const ProjectsContext = createContext<ProjectsContextType  | undefined>(
+const ProjectsContext = createContext<ProjectsContextType | undefined>(
   undefined
 );
 
@@ -16,7 +15,8 @@ export const ProjectsContextProvider: React.FC<{
   const getProjects = async () => {
     try {
       const response = await privateAxiosInstance.get(
-        PROJECTS_URLS.GET_PROJECTS_MANAGER, {params:{pageSize: 50}}
+        PROJECTS_URLS.GET_PROJECTS_MANAGER,
+        { params: { pageSize: 50 } }
       );
       setProjects(response.data.data);
     } catch (error) {
