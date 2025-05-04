@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { privateAxiosInstance } from "../Services/Axiosinstanc";
 import { PROJECTS_URLS } from "../Services/Urls";
-import { ProjectsContextType } from "../Modules/Shared/Interfaces/ProjectInterface";
+import { ProjectsContextType } from "../Modules/Shared/Interfaces/ProjectsInterface";
 
 const ProjectsContext = createContext<ProjectsContextType | undefined>(
   undefined

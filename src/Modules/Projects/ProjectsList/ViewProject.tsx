@@ -7,7 +7,7 @@ import profile from "../../../assets/profile.jpg";
 import {
   Project,
   ViewProjectProps,
-} from "../../Shared/Interfaces/ProjectInterface";
+} from "../../Shared/Interfaces/ProjectsInterface";
 import Loading from "../../Shared/Loading/Loading";
 
 const ViewProject: React.FC<ViewProjectProps> = ({
