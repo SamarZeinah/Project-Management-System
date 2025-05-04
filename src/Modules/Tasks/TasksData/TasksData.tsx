@@ -10,11 +10,11 @@ import { TaskData } from "../../Shared/Interfaces/Taskinterface";
 import { UsersContext } from "../../../context/UsersContext";
 import { ProjectsContext } from "../../../context/ProjectsContext";
 import { UserSelectorType } from "../../Shared/Interfaces/UsersInterface";
-import { ProjectSelectorType } from "../../Shared/Interfaces/projectInterface";
+import { Project } from "../../Shared/Interfaces/projectInterface";
 
 export default function TasksData() {
   const { users = [] } = useContext(UsersContext) as { users: UserSelectorType[] };
-  const { projects = [] } = useContext(ProjectsContext) as { projects: ProjectSelectorType[] };
+  const { projects = [] } = useContext(ProjectsContext) as { projects: Project[] };
 
   const navigate = useNavigate();
 
@@ -201,7 +201,7 @@ export default function TasksData() {
                   })}
                 >
                   <option value="">Select a Project</option>
-                  {projects.map((item: ProjectSelectorType) => (
+                  {projects.map((item: Project) => (
                     <option key={item?.id} value={item?.id}>
                       {item?.title}
                     </option>

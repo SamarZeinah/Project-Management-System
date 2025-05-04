@@ -2,7 +2,6 @@ import React, { createContext,  useEffect, useState } from "react";
 import { privateAxiosInstance } from "../Services/Axiosinstanc";
 import {  USERS_URLS } from "../Services/Urls";
 import { UsersContextType } from "../Modules/Shared/Interfaces/UsersInterface";
-import { param } from "framer-motion/client";
 
 
 const UsersContext = createContext<UsersContextType | undefined>(undefined);
