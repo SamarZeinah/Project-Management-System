@@ -9,7 +9,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import Pagination from "../../Shared/Pagination";
 import Actions from "../../Shared/Actions/Actions";
 import Loading from "../../Shared/Loading/Loading";
-import { PaginatedProjectsResponse } from "../../Shared/Interfaces/projectInterface";
+import { PaginatedProjectsResponse } from "../../Shared/Interfaces/ProjectInterface";
 import DeleteConfirmation from "../../Shared/DeleteConfirmation/DeleteConfirmation";
 
 const ProjectsList = () => {
