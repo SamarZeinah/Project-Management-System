@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import {
   PaginatedProjectsResponse,
   TProjectData,
-} from "../../Shared/Interfaces/ProjectInterface";
+} from "../../Shared/Interfaces/ProjectsInterface";
 
 const ProjectsData = () => {
   //start Updating project

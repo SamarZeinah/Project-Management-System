@@ -10,7 +10,7 @@ import { TaskData } from "../../Shared/Interfaces/Taskinterface";
 import { UsersContext } from "../../../context/UsersContext";
 import { ProjectsContext } from "../../../context/ProjectsContext";
 import { UserSelectorType } from "../../Shared/Interfaces/UsersInterface";
-import { Project } from "../../Shared/Interfaces/ProjectInterface";
+import { Project } from "../../Shared/Interfaces/ProjectsInterface";
 
 export default function TasksData() {
   const { users = [] } = useContext(UsersContext) as {
