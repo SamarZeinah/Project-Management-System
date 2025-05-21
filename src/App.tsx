@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import { Bounce, ToastContainer } from 'react-toastify'
 
 import './App.css'
@@ -22,7 +22,7 @@ import TasksData from './Modules/Tasks/TasksData/TasksData'
 
 
 function App() {
-  const routes=createBrowserRouter([
+  const routes=createHashRouter([
     {
       path:'',
       element:<AuthLayout/>,
