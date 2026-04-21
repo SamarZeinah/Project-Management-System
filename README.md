@@ -1,54 +1,102 @@
-# React + TypeScript + Vite
+# 📊 Project Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured **Project Management System** built with **React (Vite + TypeScript)**, designed to manage projects, tasks, and users with **role-based access control (Manager / Employee)**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div align="center">
+  <a href="https://project-management-syst.netlify.app/" target="_blank">
+    <img alt="Live Demo" src="https://img.shields.io/badge/Live_Demo-ff7a00?style=for-the-badge&logo=vercel&logoColor=white"/>
+  </a>
+</div>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Overview
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+This application provides a complete system where:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 👨‍💼 Managers can manage projects, tasks, and users  
+- 👩‍💻 Employees can view and manage their assigned tasks  
+- 📊 Dashboard displays analytics using charts and statistics  
+- 🔐 Secure authentication with role-based access  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## ✨ Features
+
+### 🔐 Authentication System
+- Login / Register  
+- Forgot / Reset / Change Password  
+- JWT-based authentication  
+- Protected routes based on roles  
+
+---
+
+### 📊 Dashboard
+- Project & task statistics  
+- Users and performance charts  
+- Overview of system activity  
+
+---
+
+### 📁 Projects Management
+- Create / Edit / Delete projects  
+- View project details  
+- Assign users to projects  
+
+---
+
+### ✅ Tasks Management
+- Create / Edit / Delete tasks  
+- Assign tasks to users  
+- Task statuses: To Do / In Progress / Done  
+- Drag & drop support  
+
+---
+
+### 👥 Users Management
+- View all users  
+- Role-based access (Manager / Employee)  
+- User details page  
+
+---
+
+### 📈 Analytics
+- Charts using **Chart.js**  
+- Task distribution & progress tracking  
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ React 19 + Vite  
+- 🟦 TypeScript  
+- 🎨 Bootstrap  
+- 🌐 Axios  
+- 🔄 React Router  
+- 🧾 React Hook Form  
+- 📊 Chart.js  
+- 🔔 React Toastify  
+- 🎞️ Framer Motion  
+- 🔐 JWT Authentication  
+- 🎯 Context API (State Management)  
+
+---
+
+## 📁 Project Structure
+
+- Authentication Module  
+- Dashboard Module  
+- Projects Module  
+- Tasks Module  
+- Users Module  
+- Shared Components (Layouts, Sidebar, Navbar, Modals, Charts)  
+
+---
+
+## 🚀 Getting Started
+
+### Clone the repository
+```bash
+git clone https://github.com/SamarZeinah/Project-Management-System
