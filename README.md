@@ -2,8 +2,6 @@
 
 A full-featured **Project Management System** built with **React (Vite + TypeScript)**, designed to manage projects, tasks, and users with **role-based access control (Manager / Employee)**.
 
----
-
 <div align="center">
   <a href="https://project-management-syst.netlify.app/" target="_blank">
     <img alt="Live Demo" src="https://img.shields.io/badge/Live_Demo-ff7a00?style=for-the-badge&logo=vercel&logoColor=white"/>
