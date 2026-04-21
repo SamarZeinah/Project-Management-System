@@ -99,4 +99,4 @@ This application provides a complete system where:
 
 ### Clone the repository
 ```bash
-git clone https://github.com/SamarZeinah/Project-Management-System
+git clone https://github.com/SamarZeinah/Quiz-Management-App
